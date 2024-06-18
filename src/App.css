@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+
+:root {
+  --bg-color: rgb(251 113 133);
+  ;
+  --light-color: white;
+}
+
+
+
+.head_color {
+  background-color: #F6F5F2 !important;
+}
+
+.header {
+  background-color: rgba(255, 255, 255, 0.918) !important;
+  backdrop-filter: blur(100px);
+}
+
+i {
+  padding-top: 2px;
+}
+
+.head_profile ul li {
+  text-align: -webkit-center;
+
+}
+
+
+
+footer {
+  background-color: #F6F5F2 !important;
+}
+
+.dropdown {
+  width: 60%;
+  min-height: 30vh;
+  display: none;
+  position: absolute;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+  top: 62px;
+  padding: 10px;
+  right: 20%;
+  animation: downOut 300ms ease-in-out;
+  background-color: var(--light-color);
+
+}
+
+.dropdown .dropdown_image {
+  text-transform: capitalize;
+  color: black;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.dropdown .dropdown_image li img {
+  height: 18vh;
+  transition: all 0.3s;
+}
+
+.dropdown_links:hover .dropdown {
+  display: block;
+
+}
+
+.dropdown .dropdown_image li img:hover {
+  transform: scale(1.4);
+}
+
+nav ul li a {
+  font-size: 16px;
+}
+
+
+.slider-container {
+  margin: 0 auto;
+  width: 96%;
+
+}
+
+.slider-container img {
+  width: 100%;
+  background-size: cover;
+}
+
+.products_card {
+  padding: 10px;
+}
+
+.products_card:hover {
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+}
+
+.slider_contant {
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.product_veraity {
+  width: 100%;
+  height: 30vh;
+  margin: 8vh auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+
+.product_veraity .veraity_box {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid rgb(251 113 133);
+  ;
+  cursor: pointer;
+  overflow: hidden;
+
+}
+
+.product_veraity .veraity_box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.product_veraity .veraity_box img:hover {
+  transform: scale(1.5);
+}
+
+.category {
+  width: 100%;
+  min-height: 20vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.category .category_box {
+  width: 290px;
+  height: 100px;
+  margin: 10px;
+  border-radius: 1rem;
+}
+
+.category .category_box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.new_image {
+  position: absolute;
+  top: 0;
+  display: none;
+}
+
+.old_image:hover .new_image {
+  display: block;
+}
+
+.cart_conatiner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 2rem;
+  color: var(--bg-color);
+  z-index: 100;
+  border-radius: 8px;
+  display: none;
+  padding: 15px;
+  animation: downOut 300ms ease-in-out;
+  cursor: pointer;
+}
+
+.old_image:hover .cart_conatiner {
+  display: block;
+}
+
+
+
+/* .feature_banner {
+  width: 100%;
+  min-height: 120vh;
+  background-image: url(/src/image/slider2.webp);
+  padding: 0px;
+  background-attachment: fixed;
+} */
+
+.count_container {
+  width: 100%;
+  background-image: url(https://img.freepik.com/premium-photo/shiny-gemstone-ring-symbol-love-wealth-glowing-elegance-generated-by-artificial-intelligence_24640-115008.jpg?w=1060);
+  margin: 5vh 0 5vh 0;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.count_up {
+  font-size: 4rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding: 8rem 3rem 8rem 3rem;
+  font-weight: 700;
+  backdrop-filter: blur(1px);
+
+}
+
+footer ul li a:hover {
+  color: var(--bg-color);
+}
+
+@keyframes downOut {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1.07);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+@media screen and (max-width: 900px) {
+  nav ul {
+    background-color: lightgreen;
+  }
+}
