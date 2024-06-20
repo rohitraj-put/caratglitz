@@ -5,12 +5,12 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { MdCurrencyRupee } from "react-icons/md";
 
-// import {
-//     TransformWrapper,
-//     TransformComponent,
-//     useControls
-// } from "react-zoom-pan-pinch";
-import ReactImageMagnify from 'react-image-magnify'
+import {
+    TransformWrapper,
+    TransformComponent,
+    useControls
+} from "react-zoom-pan-pinch";
+
 const product = {
     rating: 3.9,
     reviewCount: 117,
@@ -35,15 +35,15 @@ function QuickView({ data, open, setOpen }) {
     const [currentImage, setCurrentImage] = useState(data.imgsrc)
     const [selectedSize, setSelectedSize] = useState(product.sizes[2])
 
-    // const Controls = () => {
-    //     const { zoomIn, zoomOut } = useControls();
-    //     return (
-    //         <>
-    //             <button className='text-2xl w-16 h-8 bg-gray-100 rounded' onMouseDownCapture={() => zoomIn()}>+</button>
-    //             <button className='text-2xl w-16 h-8 bg-gray-100 rounded ml-2' onMouseUpCapture={() => zoomOut()}>-</button>
-    //         </>
-    //     );
-    // };
+    const Controls = () => {
+        const { zoomIn, zoomOut } = useControls();
+        return (
+            <div className='absolute top-10 z-10'>
+                <button className='text-2xl w-9 h-16 bg-gray-200 block' onMouseDownCapture={() => zoomIn()}>+</button>
+                <button className='text-2xl w-9 h-16 bg-gray-200 mt-2  block' onMouseUpCapture={() => zoomOut()}>-</button>
+            </div>
+        );
+    };
     console.log(data)
     return (
         <>
@@ -87,29 +87,15 @@ function QuickView({ data, open, setOpen }) {
                                             <div className="aspect-h-3 aspect-w-2  sm:col-span-4 lg:col-span-5">
 
                                                 <div className="w-full h-full z-100 object-contain">
-                                                    <ReactImageMagnify {...{
-                                                        smallImage: {
-                                                            alt: 'Wristwatch by Ted Baker London',
-                                                            isFluidWidth: true,
-                                                            src: currentImage,
-
-
-                                                        },
-                                                        largeImage: {
-                                                            src: currentImage,
-                                                            width: 1200,
-                                                            height: 1800
-
-                                                        }
-                                                    }} />
+                                                    <TransformWrapper >
+                                                        <Controls />
+                                                        <TransformComponent>
+                                                            <img src={currentImage} alt={data.alt} className="object-cover overflow-hidden object-center cursor-move" />
+                                                        </TransformComponent>
+                                                    </TransformWrapper>
                                                 </div>
 
-                                                {/* <TransformWrapper >
-                                                    <Controls />
-                                                    <TransformComponent>
-                                                        <img src={currentImage} alt={data.alt} className="object-cover overflow-hidden object-center cursor-move" />
-                                                    </TransformComponent>
-                                                </TransformWrapper> */}
+
 
 
 

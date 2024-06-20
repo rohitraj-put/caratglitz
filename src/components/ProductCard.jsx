@@ -14,6 +14,10 @@ function ProductCard({ item }) {
         setOpen(true)
         setData(data)
     }
+
+    const addToItem = () => {
+        alert('Item has been added to the cart')
+    }
     return (
         <>
             <div className="container flex justify-center ">
@@ -23,7 +27,7 @@ function ProductCard({ item }) {
                             <CiHeart />
                         </div>
 
-                        <Link to="/productdetail">
+                        <a href="/productdetail">
                             <img
                                 className="rounded-t-lg"
                                 src={item.imgsrc}
@@ -34,7 +38,7 @@ function ProductCard({ item }) {
                                 src={item.hover_image}
                                 alt={item.alt}
                             />
-                        </Link>
+                        </a>
 
                         <div className="px-2 rounded-lg bg-white">
                             <h1 className="text-gray-700 font-bold text-1xl hover:text-gray-900 hover:cursor-pointer">
@@ -58,14 +62,11 @@ function ProductCard({ item }) {
                             >
                                 Quick View
                             </button>
-
-
                             <button
-                                className="mt-3 mb-2 rounded-2xl bg-rose-400 px-20 py-2 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-rose-500 sm:mt-0 sm:w-full sm:shrink-0"
+                                className="mt-3 mb-2 rounded-2xl bg-rose-400 px-20 py-2 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-rose-500 sm:mt-0 sm:w-full sm:shrink-0" onClick={addToItem}
                             >
                                 Add Cart
                             </button>
-
                         </div>
                         <img className='absolute top-0' src={TopSelling} alt='top_selling' />
                     </div>
