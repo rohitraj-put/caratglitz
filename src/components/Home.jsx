@@ -15,6 +15,8 @@ import Footer from './Footer'
 function Home() {
     return (
         <>
+            <Head />
+            <Header />
             <Carousel />
             <ProductVeraity />
             <MidSec />
@@ -24,6 +26,7 @@ function Home() {
             <AnimatedNumber />
             <Category />
             <Feedback />
+            <Footer />
         </>
     )
 }

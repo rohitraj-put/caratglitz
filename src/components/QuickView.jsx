@@ -44,12 +44,10 @@ function QuickView({ data, open, setOpen }) {
             </div>
         );
     };
-    console.log(data)
+    console.log(data.proName)
     return (
         <>
-
             <Transition show={open}>
-
                 <Dialog className="relative z-10" onClose={setOpen}>
                     <TransitionChild
                         enter="ease-out duration-300"
@@ -102,8 +100,8 @@ function QuickView({ data, open, setOpen }) {
                                                 <div className='flex w-full h-full z-50'>
 
                                                     {
-                                                        data.allImage.map(changeImg => <div className='w-full h-full p-0.5 cursor-pointer bg-gray-100' >
-                                                            <img className='w-full h-full' src={changeImg.nextImg} alt={data.alt} onClick={() => setCurrentImage(changeImg.nextImg)} />
+                                                        data.allImage.map((changeImg, index) => <div className='w-full h-full p-0.5 cursor-pointer bg-gray-100' key={index}>
+                                                            <img className='w-full h-full' src={changeImg.nextImg} alt={`${data.alt}${index}`} onClick={() => setCurrentImage(changeImg.nextImg)} />
                                                         </div>)
                                                     }
                                                 </div>

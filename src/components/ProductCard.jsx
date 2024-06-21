@@ -6,15 +6,16 @@ import { Link, Outlet } from 'react-router-dom';
 import { MdCurrencyRupee } from "react-icons/md";
 import { CiHeart } from "react-icons/ci";
 
+
 function ProductCard({ item }) {
     const [data, setData] = useState(null)
     const [open, setOpen] = useState(true)
+
 
     const addData = (data) => {
         setOpen(true)
         setData(data)
     }
-
     const addToItem = () => {
         alert('Item has been added to the cart')
     }
@@ -23,23 +24,23 @@ function ProductCard({ item }) {
             <div className="container flex justify-center ">
                 <div className="max-w-sm py-2  old_image " data-aos="zoom-in">
                     <div className="bg-white relative border-lg hover:drop-shadow-2xl transition duration-500 rounded-lg border-1" >
-                        <div className='cart_conatiner'>
+                        <div className='absolute top-2 right-3 text-2xl p-1 bg-gray-100 rounded-full z-10 text-rose-400'>
                             <CiHeart />
                         </div>
-
-                        <a href="/productdetail">
-                            <img
-                                className="rounded-t-lg"
-                                src={item.imgsrc}
-                                alt={item.alt}
-                            />
-                            <img
-                                className="new_image rounded-t-lg"
-                                src={item.hover_image}
-                                alt={item.alt}
-                            />
-                        </a>
-
+                        <Link to={`/product/${item.id}`} >
+                            <div>
+                                <img
+                                    className="rounded-t-lg"
+                                    src={item.imgsrc}
+                                    alt={item.alt}
+                                />
+                                <img
+                                    className="new_image rounded-t-lg"
+                                    src={item.hover_image}
+                                    alt={item.alt}
+                                />
+                            </div>
+                        </Link>
                         <div className="px-2 rounded-lg bg-white">
                             <h1 className="text-gray-700 font-bold text-1xl hover:text-gray-900 hover:cursor-pointer">
                                 {item.proName}
@@ -70,8 +71,8 @@ function ProductCard({ item }) {
                         </div>
                         <img className='absolute top-0' src={TopSelling} alt='top_selling' />
                     </div>
-                </div>
-            </div>
+                </div >
+            </div >
             <Outlet />
             {data && <QuickView data={data} open={open} setOpen={setOpen} />}
         </>
