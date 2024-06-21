@@ -3,7 +3,7 @@ import { PiChatsLight } from "react-icons/pi";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import whatsApp from '../assets/image/whatsapp.png';
-import { Outlet } from 'react-router-dom';
+
 
 function Header() {
     useEffect(() => {
@@ -14,9 +14,9 @@ function Header() {
 
     return (
         <>
-            <header className="header sticky top-0 shadow-md flex items-center justify-between px-8 z-10 text-black">
+            <header className="header sticky top-0 shadow-md flex items-center justify-between px-8 z-10 text-black overflow-hidden">
                 <nav className="nav font-semibold text-lg">
-                    <ul className="flex items-center">
+                    <ul className="flex items-center max-md:hidden">
                         {['Gold', 'Diamond', 'Gemstone', 'Ring', 'Earring', 'Noserings', 'Bracelets', 'Noserings', 'Nosepins'].map((item, index) => (
                             <li key={index} className="p-4 border-b-2 border-rose-400 border-opacity-0 hover:border-opacity-100 hover:text-rose-400 duration-200 cursor-pointer">
                                 <a href="">{item}</a>

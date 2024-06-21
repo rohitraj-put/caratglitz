@@ -12,8 +12,6 @@ function ScrollTop() {
         return () => clearTimeout(timeout);
     }, [pathname]);
 
-
     return null;
 }
-
 export default ScrollTop;

@@ -50,7 +50,7 @@ function ProductSlider() {
 
     ]
     return (
-        <div className="slider-container mb-4 text-center" data-aos="fade-up">
+        <div className="slider-container mb-4 text-center overflow-hidden" data-aos="fade-up">
             <h1 className="text-3xl font-bold tracking-tight text-rose-400 sm:text-4xl pt-8  ">Gemstone Jewellery</h1>
             <p className="pb-4">Capturing timeless grace in each precious stone</p>
             <Slider {...settings} className="slider_card_main">

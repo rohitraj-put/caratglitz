@@ -58,13 +58,13 @@ function ProductCard({ item }) {
                         </div>
                         <div className='m-2'>
                             <button
-                                className="mt-1 mb-2 rounded-2xl  bg-rose-400 px-20 py-2 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-rose-600 sm:mt-0 sm:w-full sm:shrink-0"
+                                className="mt-1 mb-2 rounded-2xl  bg-rose-400 px-20 py-2 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-rose-600 sm:mt-0 sm:w-full sm:shrink-0 max-md:w-full"
                                 onClick={() => addData(item)}
                             >
                                 Quick View
                             </button>
                             <button
-                                className="mt-3 mb-2 rounded-2xl bg-rose-400 px-20 py-2 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-rose-500 sm:mt-0 sm:w-full sm:shrink-0" onClick={addToItem}
+                                className="mt-3 mb-2 rounded-2xl bg-rose-400 px-20 py-2 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-rose-500 sm:mt-0 sm:w-full sm:shrink-0 max-md:w-full" onClick={addToItem}
                             >
                                 Add Cart
                             </button>

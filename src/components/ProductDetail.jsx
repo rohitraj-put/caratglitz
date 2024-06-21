@@ -231,7 +231,7 @@ function ProductDetail() {
             <div className=" bg-white">
                 <div className="p-4 lg:max-w-7xl max-w-4xl mx-auto">
                     <div className="grid items-center grid-cols-1 lg:grid-cols-4 gap-12 p-6 rounded-lg">
-                        <div className="border-2 rounded lg:col-span-2 w-full lg:sticky top-0 text-center">
+                        <div className=" relative border-2 rounded lg:col-span-2 w-full lg:sticky top-0 text-center">
                             <button type="button" className=" text-rose-400  absolute text-3xl top-4 right-4 p-1 bg-gray-100 rounded-full">
                                 <CiHeart />
                             </button>
@@ -246,7 +246,6 @@ function ProductDetail() {
                                         />
                                     </TransformComponent>
                                 </TransformWrapper>
-
                             </div>
                             <div className="mt-2 mb-4 flex justify-center gap-4 mx-auto">
                                 {product.allImage.map((image, index) => (
@@ -324,7 +323,7 @@ function ProductDetail() {
                         </div>
                     </div>
                     <h3 className="text-2xl text-center mt-8 font-bold tracking-tight text-rose-400 capitalize sm:text-4xl">product details</h3>
-                    <div className='flex justify-between pl-8 pr-2 mt-8'>
+                    <div className='flex justify-center  pr-2 mt-8 gap-6 max-md:flex-wrap '>
                         {[
                             {
                                 title: 'JEWELLERY INFORMATION',

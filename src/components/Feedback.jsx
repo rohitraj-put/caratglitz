@@ -39,8 +39,8 @@ function Feedback() {
 
     ]
     return (
-        <div className="slider-container mb-4" >
-            <h1 className="text-3xl font-bold tracking-tight text-rose-400 sm:text-4xl p-8 text-center capitalize " >What Our
+        <div className="slider-container mb-4 overflow-hidden" >
+            <h1 className="text-3xl font-bold tracking-tight text-rose-400 sm:text-4xl p-8 text-center capitalize" >What Our
                 Customers Say</h1>
             <Slider {...settings} className="slider_card_main">
                 {
@@ -49,7 +49,7 @@ function Feedback() {
                             <img className="rounded-full border-2 border-rose-500" src={item.customer_img} />
 
                         </div>
-                        <p className="p-14 rounded-3xl"><q>{item.feeback}</q></p>
+                        <p className="p-14 rounded-3xl max-md:p-1 "><q>{item.feeback}</q></p>
                         <div className="flex justify-center text-2xl text-amber-500">
                             <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
                         </div>

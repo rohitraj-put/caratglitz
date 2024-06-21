@@ -8,12 +8,13 @@ import Loading from './components/Loading';
 import NotFoundPage from './components/NotFoundPage';
 import Contact from './components/Contact';
 import ScrollTop from './components/ScrollTop';
+import User from './components/userProfile/User';
 
 function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
+    setTimeout(() => setLoading(false), 500);
   }, []);
 
   if (loading) {

@@ -108,14 +108,14 @@ nav ul li a {
 }
 
 .product_variety {
-  width: 100%;
-  height: 30vh;
+  width: 98%;
+  min-height: 10vh;
   margin: 8vh auto;
   display: flex;
   justify-content: space-between;
-  padding: 25px;
-  flex-wrap: wrap;
-  overflow-y: auto;
+  padding-bottom: 20px;
+  gap: 1rem;
+  overflow-x: scroll;
 }
 
 .product_variety .variety_box {
@@ -123,10 +123,29 @@ nav ul li a {
   height: 100px;
   border-radius: 50%;
   border: 2px solid rgb(251 113 133);
-  ;
   cursor: pointer;
   overflow: hidden;
 
+
+}
+
+.product_variety::-webkit-scrollbar {
+  width: 20px !important;
+  height: 5px;
+}
+
+.product_variety::-webkit-scrollbar-thumb {
+  background: rgb(251 113 133);
+  border-radius: 30px;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgb(251 113 133);
+  border-radius: 30px;
 }
 
 .product_variety .variety_box img {
