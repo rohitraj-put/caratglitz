@@ -71,12 +71,7 @@ const ProductData = [
         hover_image: Pro_1_1,
         old_price: 20000,
         rating: 4,
-        allImage: [
-            Pro_1_1,
-            Pro_1_3,
-            Pro_1_2,
-            Harshali
-        ]
+        allImage: [Pro_1_1, Pro_1_3, Pro_1_2, Harshali]
     },
     {
         id: 2,
@@ -87,12 +82,7 @@ const ProductData = [
         hover_image: pro_2_4,
         old_price: 20000,
         rating: 4,
-        allImage: [
-            pro_2_1,
-            pro_2_2,
-            pro_2_3,
-            pro_2_4
-        ]
+        allImage: [pro_2_1, pro_2_2, pro_2_3, pro_2_4]
 
 
     },
@@ -105,12 +95,7 @@ const ProductData = [
         hover_image: pro_3_4,
         old_price: 20000,
         rating: 4,
-        allImage: [
-            pro_3_2,
-            pro_3_3,
-            pro_3_4,
-            pro_3_5
-        ]
+        allImage: [pro_3_2, pro_3_3, pro_3_4, pro_3_5]
 
 
     },
@@ -124,12 +109,7 @@ const ProductData = [
         hover_image: pro_4_3,
         old_price: 20000,
         rating: 4,
-        allImage: [
-            pro_4_2,
-            pro_4_4,
-            pro_4_3,
-            pro_4_5
-        ]
+        allImage: [pro_4_2, pro_4_4, pro_4_3, pro_4_5]
 
     },
     {
@@ -141,12 +121,7 @@ const ProductData = [
         hover_image: pro_5_3,
         old_price: 20000,
         rating: 4,
-        allImage: [
-            pro_5_2,
-            pro_5_3,
-            pro_5_4,
-            pro_5_5
-        ]
+        allImage: [pro_5_2, pro_5_3, pro_5_4, pro_5_5]
 
 
     },
@@ -159,12 +134,7 @@ const ProductData = [
         hover_image: pro_6_3,
         old_price: 20000,
         rating: 4,
-        allImage: [
-            pro_6_1,
-            pro_6_3,
-            pro_6_4,
-            pro_6_5
-        ]
+        allImage: [pro_6_1, pro_6_3, pro_6_4, pro_6_5]
 
 
     },
@@ -177,12 +147,7 @@ const ProductData = [
         hover_image: pro_7_3,
         old_price: 20000,
         rating: 4,
-        allImage: [
-            pro_7_2,
-            pro_7_3,
-            pro_7_4,
-            pro_7_5
-        ]
+        allImage: [pro_7_2, pro_7_3, pro_7_4, pro_7_5]
 
 
     },
@@ -195,12 +160,7 @@ const ProductData = [
         hover_image: pro_8_3,
         old_price: 20000,
         rating: 4,
-        allImage: [
-            pro_8_2,
-            pro_8_3,
-            pro_8_4,
-            pro_8_5
-        ]
+        allImage: [pro_8_2, pro_8_3, pro_8_4, pro_8_5]
 
 
     }

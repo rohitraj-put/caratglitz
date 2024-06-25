@@ -5,9 +5,10 @@ import Head from './Head';
 import Header from './Header';
 import Footer from './Footer';
 import User from './userProfile/User';
+import { useNavigate } from 'react-router-dom';
 
 function Contact() {
-
+    const Navigate = useNavigate()
     const email = useRef()
     const password = useRef()
 
@@ -19,13 +20,12 @@ function Contact() {
         if (email.current.value === "rohit@gmail.com" && password.current.value === "12345") {
             localStorage.setItem("emailData", "rohit@gmail.com")
             localStorage.setItem("passwordData", "12345")
-
-
-
+            Navigate("/userProfile")
         }
         else {
             e.preventDefault()
             toast.error('your email and password is wrong !')
+
         }
     }
 

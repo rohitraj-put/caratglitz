@@ -3,7 +3,7 @@ import { PiChatsLight } from "react-icons/pi";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import whatsApp from '../assets/image/whatsapp.png';
-
+import { IoMenuOutline } from "react-icons/io5";
 
 function Header() {
     useEffect(() => {
@@ -14,8 +14,11 @@ function Header() {
 
     return (
         <>
-            <header className="header sticky top-0 shadow-md flex items-center justify-between px-8 z-10 text-black overflow-hidden">
-                <nav className="nav font-semibold text-lg">
+            <header className="header sticky top-0 shadow-md flex items-center justify-between px-8 z-10 text-black  max-md:px-4">
+                <nav className="nav font-semibold text-lg ">
+                    <div className='text-3xl p-2 md:hidden'>
+                        <IoMenuOutline />
+                    </div>
                     <ul className="flex items-center max-md:hidden">
                         {['Gold', 'Diamond', 'Gemstone', 'Ring', 'Earring', 'Noserings', 'Bracelets', 'Noserings', 'Nosepins'].map((item, index) => (
                             <li key={index} className="p-4 border-b-2 border-rose-400 border-opacity-0 hover:border-opacity-100 hover:text-rose-400 duration-200 cursor-pointer">
@@ -58,12 +61,12 @@ function Header() {
                     </ul>
                 </nav>
             </header>
-            <div className="fixed z-10 w-14 h-14 rounded-full bottom-16 right-4 bg-rose-400 p-2.5 hover:bg-rose-500" data-aos="fade-down">
+            <div className="fixed z-10 w-14 h-14 rounded-full bottom-16 right-4 bg-rose-400 p-2.5 hover:bg-rose-500" >
                 <a href="https://web.whatsapp.com/send?l=en&phone=+91 8506922777&text=I want to order a website" target="_blank" rel="noopener noreferrer">
                     <PiChatsLight className='text-4xl text-white' />
                 </a>
             </div>
-            <div className="fixed z-10 w-16 h-16 bottom-1 right-3" data-aos="fade-up">
+            <div className="fixed z-10 w-16 h-16 bottom-1 right-3" >
                 <a href="https://web.whatsapp.com/send?l=en&phone=+91 8506922777&text=I want to order a website" target="_blank" rel="noopener noreferrer">
                     <img className='w-full h-full' src={whatsApp} alt='WhatsApp' />
                 </a>

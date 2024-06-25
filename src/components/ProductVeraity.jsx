@@ -25,7 +25,7 @@ function ProductVariety() {
     return (
         <div className='product_variety'>
             {images.map((image, index) => (
-                <Link to={"#"}>
+                <Link to={"#"} key={index}>
                     <div className='variety_box' data-aos="zoom-in" key={index}>
                         <img src={image.src} alt={image.alt} />
                     </div>

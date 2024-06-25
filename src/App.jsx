@@ -31,6 +31,7 @@ function App() {
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/QuickView" element={<QuickView />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/userProfile" element={<User />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>

@@ -19,6 +19,7 @@ function ProductCard({ item }) {
     const addToItem = () => {
         alert('Item has been added to the cart')
     }
+
     return (
         <>
             <div className="container flex justify-center ">
