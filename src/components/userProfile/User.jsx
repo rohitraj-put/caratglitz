@@ -3,6 +3,7 @@ import Head from '../Head';
 import Header from '../Header';
 import Footer from '../Footer';
 import { useNavigate } from 'react-router-dom';
+import Cart from '../Cart';
 
 function User() {
     const navigate = useNavigate();
@@ -11,10 +12,8 @@ function User() {
         localStorage.clear();
         navigate('/');
     };
-
     const getEmail = localStorage.getItem("emailData");
     const UserName = getEmail ? getEmail.slice(0, 5) : "Guest";
-
     return (
         <>
             <Head />
@@ -40,7 +39,6 @@ function User() {
                     alt='user_image'
                 />
             </div>
-
             <Footer />
         </>
     );

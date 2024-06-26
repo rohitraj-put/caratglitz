@@ -178,7 +178,7 @@ function ProductDetail() {
     const Controls = () => {
         const { zoomIn, zoomOut } = useControls();
         return (
-            <div className='absolute left-2 top-2 z-10'>
+            <div className='absolute left-2 top-2'>
                 <button className='text-2xl w-9 h-16 bg-gray-200 block' onMouseDownCapture={() => zoomIn()}>+</button>
                 <button className='text-2xl w-9 h-16 bg-gray-200 mt-2  block' onMouseUpCapture={() => zoomOut()}>-</button>
             </div>

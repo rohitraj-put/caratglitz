@@ -9,6 +9,7 @@ import NotFoundPage from './components/NotFoundPage';
 import Contact from './components/Contact';
 import ScrollTop from './components/ScrollTop';
 import User from './components/userProfile/User';
+import Cart from './components/Cart';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -32,6 +33,7 @@ function App() {
           <Route path="/QuickView" element={<QuickView />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/userProfile" element={<User />} />
+          <Route path="/cartlist" element={<Cart />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
