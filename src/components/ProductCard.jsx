@@ -8,6 +8,7 @@ import { MdCurrencyRupee } from "react-icons/md";
 import { CiHeart } from "react-icons/ci";
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/actions';
+
 import { ToastContainer, toast } from 'react-toastify';
 
 function ProductCard({ item }) {
@@ -23,7 +24,7 @@ function ProductCard({ item }) {
     const cartHandler = () => {
         dispatch(addToCart(item))
         toast.success(`${item.proName} has been cart in the list`, {
-            position: "top-center",
+            position: "top-right",
             autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
@@ -40,7 +41,7 @@ function ProductCard({ item }) {
                 <div className="bg-white relative border-lg hover:drop-shadow-2xl transition duration-500 rounded-lg border-1">
                     <button
                         className='absolute top-2 right-3 text-2xl p-1 bg-gray-100 rounded-full z-10'
-
+                        onClick={() => dispatch(addToWishlist(item))}
                     >
                         <i className='text-rose-400'><CiHeart /></i>
 

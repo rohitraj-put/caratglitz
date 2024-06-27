@@ -10,6 +10,7 @@ import Contact from './components/Contact';
 import ScrollTop from './components/ScrollTop';
 import User from './components/userProfile/User';
 import Cart from './components/Cart';
+import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -18,26 +19,26 @@ function App() {
     setTimeout(() => setLoading(false), 500);
   }, []);
 
+
+
   if (loading) {
     return <Loading />;
   }
 
   return (
-    <>
-
-      <BrowserRouter>
-        <ScrollTop />
-        <Routes>
-          <Route exact path="/" element={<Home />}></Route>
-          <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="/QuickView" element={<QuickView />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/userProfile" element={<User />} />
-          <Route path="/cartlist" element={<Cart />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <ToastContainer />
+      <ScrollTop />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/QuickView" element={<QuickView />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/userProfile" element={<User />} />
+        <Route path="/cartlist" element={<Cart />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
