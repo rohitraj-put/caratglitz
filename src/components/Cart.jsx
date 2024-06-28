@@ -153,7 +153,7 @@ const Cart = () => {
                         onClick={handleCheckout}
 
                     >
-                        Check out
+                        Procced to Checkout
                     </button>
                     <p className='py-4'>All major payment methods are accepted, including UPI, credit cards, debit cards, PayPal, and Net Banking.</p>
 

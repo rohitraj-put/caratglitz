@@ -50,7 +50,6 @@ function Products({ addToWishlist, wishlist }) {
                                 <option value="Necklace">Necklace</option>
                                 <option value="Pendant">Pendant</option>
                             </select>
-
                         </div>
                         <div className="flex items-center mb-8">
                             <span className='mr-1'>Price : </span>
@@ -65,7 +64,7 @@ function Products({ addToWishlist, wishlist }) {
                                 <option className='hover:bg-rose-400' value="12000">12000</option>
                                 <option className='hover:bg-rose-400' value="16000">16000</option>
                             </select>
-                            <i className='absolute right-2 top-2'><IoIosArrowDown /></i>
+                            {/* <i className='absolute right-2 top-2'><IoIosArrowDown /></i> */}
                         </div>
                     </div>
                     <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">

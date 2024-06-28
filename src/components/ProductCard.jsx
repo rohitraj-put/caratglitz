@@ -13,7 +13,6 @@ import { ToastContainer, toast } from 'react-toastify';
 
 function ProductCard({ item, addToWishlist, wishlist }) {
     const dispatch = useDispatch()
-    const [cart, setCart] = useState()
     const [data, setData] = useState(null);
     const [open, setOpen] = useState(false);
 

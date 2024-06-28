@@ -1,7 +1,4 @@
-// Head.js
 import React, { useState } from 'react';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
 import logo from '../assets/image/logo.png';
 import { FaSearch } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa6";
@@ -9,15 +6,41 @@ import { IoCart } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 
-
-
 function Head() {
-
     const getEmail = localStorage.getItem("emailData");
     let UserName = getEmail ? getEmail.slice(0, 5) : "Guest";
 
+    const [selectedCountry, setSelectedCountry] = useState('India');
+
+    const handleCountryChange = (e) => {
+        setSelectedCountry(e.target.value);
+    };
+
+    const countryFlags = {
+        India: 'https://static.vecteezy.com/system/resources/previews/016/328/568/original/india-flat-rounded-flag-with-transparent-background-free-png.png',
+        Dubai: 'https://cdn2.iconfinder.com/data/icons/world-flags-1-1/100/uae-512.png',
+        'New York': 'https://www.pngall.com/wp-content/uploads/12/USA-Flag-PNG-File.png',
+        London: 'https://www.pngall.com/wp-content/uploads/12/USA-Flag-PNG-File.png',
+        Harare: 'https://static.vecteezy.com/system/resources/previews/015/272/144/non_2x/zimbabwe-3d-rounded-flag-with-transparent-background-free-png.png'
+    };
+
     const profileItems = [
-        { icon: <img className='w-6 h-6' src='https://static.vecteezy.com/system/resources/previews/011/571/519/original/circle-flag-of-india-free-png.png' alt='Country Flag' />, label: 'Country' },
+        {
+            icon: <img className='w-6 h-6' src={countryFlags[selectedCountry]} alt='Country Flag' />,
+            label: (
+                <select
+                    className='border mt-0.5 border-gray-300 rounded-full text-gray-600 p-1 bg-white hover:border-gray-400 focus:outline-none appearance-none"'
+                    value={selectedCountry}
+                    onChange={handleCountryChange}
+                >
+                    <option value="India">India</option>
+                    <option value="Dubai">Dubai</option>
+                    <option value="New York">New York</option>
+                    <option value="London">London</option>
+                    <option value="Harare">Harare</option>
+                </select>
+            )
+        },
         { link: "/stores", icon: <FaLocationDot />, label: 'Stores' },
         { icon: <FaRegHeart />, label: 'Wishlist' },
         { link: "/cartlist", icon: <IoCart />, label: 'Cart' },
@@ -50,18 +73,19 @@ function Head() {
             </div>
             <div className='flex justify-between items-center gap-5 head_profile max-md:hidden'>
                 <ul className='flex justify-between items-center gap-4 text-center'>
-                    <li className="p-4 border-black duration-200 cursor-pointer">
-                        <Link to="/contact" className='hover:text-rose-400'>{getEmail ? "" : "Log In"}</Link>
-                    </li>
-
                     {profileItems.map((item, index) => (
                         <Link to={item.link} key={index}>
-                            <li className='text-2xl cursor-pointer hover:text-rose-400'>
+                            <li className={`text-2xl cursor-pointer hover:text-rose-400 ${index === 0 ? 'flex items-center' : ''}`}>
                                 {item.icon}
                                 <p className='text-sm capitalize'>{item.label}</p>
                             </li>
                         </Link>
                     ))}
+                    {
+                        getEmail ? "" : <li className="border-black duration-200 cursor-pointer">
+                            <Link to="/contact" className='hover:text-rose-400'> <button className='bg-rose-400 px-4 py-1 text-white rounded'>Log In</button></Link>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>

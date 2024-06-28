@@ -1,54 +1,51 @@
 import React, { useState } from 'react';
-// import image from '../assets/image/4-1.png';
 import { MdCurrencyRupee } from "react-icons/md";
-import Feedback from './Feedback';
-import { FaStar } from "react-icons/fa6";
+import { FaStar } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { useParams } from 'react-router-dom';
 import ProductData from '../data/ProductData';
-
-import {
-    TransformWrapper,
-    TransformComponent,
-    useControls
-} from "react-zoom-pan-pinch";
+import ProductCard from './ProductCard';
+import { TransformWrapper, TransformComponent, useControls } from "react-zoom-pan-pinch";
 import Head from './Head';
 import Header from './Header';
 import Footer from './Footer';
-
+import Feedback from './Feedback';
 
 function ProductDetail() {
-
     const { id } = useParams();
     const product = ProductData.find(p => p.id === parseInt(id));
 
     if (!product) {
         return <div>Product not found</div>;
     }
-    const [showImage, setShowImage] = useState(product ? product.imgsrc : '');
+
+    const [showImage, setShowImage] = useState(product.imgsrc);
+
+    const sameCategoryProducts = ProductData.filter(item => item.category === product.category && item.id !== product.id);
 
     const Controls = () => {
         const { zoomIn, zoomOut } = useControls();
         return (
             <div className='absolute left-2 top-2'>
                 <button className='text-2xl w-9 h-16 bg-gray-200 block' onMouseDownCapture={() => zoomIn()}>+</button>
-                <button className='text-2xl w-9 h-16 bg-gray-200 mt-2  block' onMouseUpCapture={() => zoomOut()}>-</button>
+                <button className='text-2xl w-9 h-16 bg-gray-200 mt-2 block' onMouseUpCapture={() => zoomOut()}>-</button>
             </div>
         );
     };
+
     return (
         <>
             <Head />
             <Header />
-            <div className=" bg-white">
+            <div className="bg-white">
                 <div className="p-4 lg:max-w-7xl max-w-4xl mx-auto">
                     <div className="grid items-center grid-cols-1 lg:grid-cols-4 gap-12 p-6 rounded-lg">
-                        <div className=" relative border-2 rounded lg:col-span-2 w-full lg:sticky top-0 text-center">
-                            <button type="button" className=" text-rose-400  absolute text-3xl top-4 right-4 p-1 bg-gray-100 rounded-full">
+                        <div className="relative border-2 rounded lg:col-span-2 w-full lg:sticky top-0 text-center">
+                            <button type="button" className="text-rose-400 absolute text-3xl top-4 right-4 p-1 bg-gray-100 rounded-full">
                                 <CiHeart />
                             </button>
-                            <div className="w-3/4 h-3/4  mx-auto">
-                                <TransformWrapper >
+                            <div className="w-3/4 h-3/4 mx-auto">
+                                <TransformWrapper>
                                     <Controls />
                                     <TransformComponent>
                                         <img
@@ -135,8 +132,8 @@ function ProductDetail() {
                             </div>
                         </div>
                     </div>
-                    <h3 className="text-2xl text-center mt-8 font-bold tracking-tight text-rose-400 capitalize sm:text-4xl">product details</h3>
-                    <div className='flex justify-center  pr-2 mt-8 gap-6 max-md:flex-wrap '>
+                    <h3 className="text-2xl text-center mt-8 font-bold tracking-tight text-rose-400 capitalize sm:text-4xl">Product Details</h3>
+                    <div className='flex justify-center pr-2 mt-8 gap-6 max-md:flex-wrap'>
                         {[
                             {
                                 title: 'JEWELLERY INFORMATION',
@@ -185,13 +182,17 @@ function ProductDetail() {
                             </div>
                         ))}
                     </div>
-                    <div className='text-center w-3/4 mx-auto  my-8'>
-                        <h3 className="text-2xl text-center p-4 font-bold tracking-tight text-rose-400 capitalize sm:text-4xl">price breakup</h3>
+                    <div className='text-center w-3/4 mx-auto my-8'>
+                        <h3 className="text-2xl text-center p-4 font-bold tracking-tight text-rose-400 capitalize sm:text-4xl">Price Breakup</h3>
                         <p>Value-based pricing ensures that our customers feel happy paying price for the value they're getting. Moreover, individual narration (gold price, diamond price, making charges, GST, discount if any) of every product helps our customer to compare the price more easily as we are confident enough that the customers will return to us after comparing the price and quality.</p>
                     </div>
-
+                    <h3 className="text-2xl text-center mt-8 font-bold tracking-tight text-rose-400 capitalize sm:text-4xl">Similar Products</h3>
+                    <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                        {sameCategoryProducts.length === 0 ? <p className='text-center'>No Similar Item available!</p> : sameCategoryProducts.map((item, index) => (
+                            <ProductCard key={index} item={item} />
+                        ))}
+                    </div>
                     <Feedback />
-
                 </div>
             </div>
             <Footer />
