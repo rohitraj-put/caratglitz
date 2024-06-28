@@ -32,7 +32,7 @@ function classNames(...classes) {
 }
 
 function QuickView({ data, open, setOpen }) {
-    const [currentImage, setCurrentImage] = useState(data.imgsrc)
+    const [showImage, setShowImage] = useState(data ? data.imgsrc : '');
     const [selectedSize, setSelectedSize] = useState(product.sizes[2])
 
     const Controls = () => {
@@ -44,7 +44,6 @@ function QuickView({ data, open, setOpen }) {
             </div>
         );
     };
-    console.log(data.proName)
     return (
         <>
             <Transition show={open}>
@@ -88,20 +87,17 @@ function QuickView({ data, open, setOpen }) {
                                                     <TransformWrapper >
                                                         <Controls />
                                                         <TransformComponent>
-                                                            <img src={currentImage} alt={data.alt} className="object-cover overflow-hidden object-center cursor-move" />
+                                                            <img src={showImage} alt={data.alt} className="object-cover overflow-hidden object-center cursor-move" />
                                                         </TransformComponent>
                                                     </TransformWrapper>
                                                 </div>
 
-
-
-
-
                                                 <div className='flex w-full h-full z-50'>
 
                                                     {
-                                                        data.allImage.map((changeImg, index) => <div className='w-full h-full p-0.5 cursor-pointer bg-gray-100' key={index}>
-                                                            <img className='w-full h-full' src={changeImg.nextImg} alt={`${data.alt}${index}`} onClick={() => setCurrentImage(changeImg.nextImg)} />
+                                                        data.allImage.map((image, index) => <div className='w-full h-full p-0.5 cursor-pointer bg-gray-100' key={index}>
+                                                            <img className='w-full h-full' src={image}
+                                                                alt={`Product ${index + 1}`} onClick={() => setShowImage(image)} />
                                                         </div>)
                                                     }
                                                 </div>

@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+// Head.js
+import React, { useState } from 'react';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import logo from '../assets/image/logo.png';
@@ -8,20 +9,17 @@ import { IoCart } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 
+
+
 function Head() {
-    useEffect(() => {
-        Aos.init({
-            duration: 1200
-        });
-    }, []);
 
     const getEmail = localStorage.getItem("emailData");
     let UserName = getEmail ? getEmail.slice(0, 5) : "Guest";
 
     const profileItems = [
-        { link: "#", icon: <img className='w-6 h-6' src='https://static.vecteezy.com/system/resources/previews/011/571/519/original/circle-flag-of-india-free-png.png' alt='Country Flag' />, label: 'Country' },
-        { link: "#", icon: <FaLocationDot />, label: 'Stores' },
-        { link: "#", icon: <FaRegHeart />, label: 'Wishlist' },
+        { icon: <img className='w-6 h-6' src='https://static.vecteezy.com/system/resources/previews/011/571/519/original/circle-flag-of-india-free-png.png' alt='Country Flag' />, label: 'Country' },
+        { link: "/stores", icon: <FaLocationDot />, label: 'Stores' },
+        { icon: <FaRegHeart />, label: 'Wishlist' },
         { link: "/cartlist", icon: <IoCart />, label: 'Cart' },
         { link: "/userProfile", icon: <img className='w-6 h-6' src='https://cdn.pixabay.com/photo/2017/06/13/12/54/profile-2398783_1280.png' alt='Profile' />, label: UserName }
     ];

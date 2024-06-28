@@ -4,15 +4,16 @@ import QuickView from './QuickView';
 import { FaStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { MdCurrencyRupee } from "react-icons/md";
-
 import { CiHeart } from "react-icons/ci";
+import { IoIosHeart } from "react-icons/io";
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/actions';
 
 import { ToastContainer, toast } from 'react-toastify';
 
-function ProductCard({ item }) {
+function ProductCard({ item, addToWishlist, wishlist }) {
     const dispatch = useDispatch()
+    const [cart, setCart] = useState()
     const [data, setData] = useState(null);
     const [open, setOpen] = useState(false);
 
@@ -20,6 +21,7 @@ function ProductCard({ item }) {
         setOpen(true);
         setData(data);
     };
+
 
     const cartHandler = () => {
         dispatch(addToCart(item))
@@ -31,6 +33,7 @@ function ProductCard({ item }) {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
+
         });
     }
     return (
@@ -41,12 +44,13 @@ function ProductCard({ item }) {
                 <div className="bg-white relative border-lg hover:drop-shadow-2xl transition duration-500 rounded-lg border-1">
                     <button
                         className='absolute top-2 right-3 text-2xl p-1 bg-gray-100 rounded-full z-10'
-                        onClick={() => dispatch(addToWishlist(item))}
+                        onClick={() =>
+                            addToWishlist(item)}
                     >
-                        <i className='text-rose-400'><CiHeart /></i>
+                        {wishlist.some(wishlistItem => wishlistItem.id === item.id) ? <i className='text-rose-400'><IoIosHeart /></i> : <i className='text-rose-400'><CiHeart /></i>}
 
                     </button>
-                    <Link to={`/product/${item.id}`}>
+                    <Link to={`/product/${item.id} ${item.proName}`}>
                         <div>
                             <img
                                 className="rounded-t-lg"
@@ -93,7 +97,7 @@ function ProductCard({ item }) {
                 </div>
             </div>
             {data && <QuickView data={data} open={open} setOpen={setOpen} />}
-        </div>
+        </div >
     );
 }
 

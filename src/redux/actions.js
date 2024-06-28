@@ -4,7 +4,6 @@ import { ADD_TO_CART, REMOVE_FROM_CART, INCREASE_QUANTITY, DECREASE_QUANTITY } f
 export const addToCart = (item) => ({
     type: ADD_TO_CART,
     payload: item,
-
 });
 
 export const removeFromCart = (itemId) => ({
