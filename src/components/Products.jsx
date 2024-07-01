@@ -29,6 +29,8 @@ function Products({ addToWishlist, wishlist }) {
         return categoryMatch && priceMatch;
     });
 
+
+
     return (
         <>
             <div className="bg-white">
@@ -69,7 +71,7 @@ function Products({ addToWishlist, wishlist }) {
                     </div>
                     <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                         {
-                            filteredProducts.map((item, index) => (
+                            filteredProducts.length === 0 ? <p className='text-center tex-xl'>Sorry! No {filter} Avaiable the price of {filterPrice} </p> : filteredProducts.map((item, index) => (
                                 <ProductCard key={index} item={item} addToWishlist={addToWishlist} wishlist={wishlist} />
                             ))
                         }

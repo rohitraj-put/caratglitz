@@ -31,7 +31,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-function QuickView({ data, open, setOpen }) {
+function QuickView({ data, open, setOpen, cartHandler }) {
     const [showImage, setShowImage] = useState(data ? data.imgsrc : '');
     const [selectedSize, setSelectedSize] = useState(product.sizes[2])
 
@@ -204,6 +204,7 @@ function QuickView({ data, open, setOpen }) {
                                                             <button
                                                                 type="submit"
                                                                 className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-rose-400 px-8 py-3 text-base font-medium text-white hover:bg-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2"
+                                                                onClick={cartHandler}
                                                             >
                                                                 Add to Cart
                                                             </button>

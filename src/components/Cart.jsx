@@ -8,6 +8,8 @@ import { MdCurrencyRupee } from "react-icons/md";
 import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 
+
+
 const Cart = () => {
     const cart = useSelector(state => state.cart);
     const dispatch = useDispatch();
@@ -39,7 +41,7 @@ const Cart = () => {
             });
         }, 2800);
     };
-
+    localStorage.setItem("cartNumber", cart.length);
     return (
         <>
             <Head />
@@ -53,7 +55,6 @@ const Cart = () => {
                     ) : (
                         cart.map(item => {
                             const subTotal = item.price * item.quantity;
-
 
                             return (
                                 <div key={item.id} className='mb-6 '>

@@ -24,7 +24,7 @@ function Carousel() {
     };
 
     return (
-        <div className="slider-container w-full overflow-hidden">
+        <div className="slider-container w-full overflow-hidden -z-10">
             <Slider {...settings}>
                 {images.map((image, index) => (
                     <div key={index} className='w-full'>

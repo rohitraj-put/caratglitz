@@ -10,7 +10,11 @@ import Contact from './components/Contact';
 import ScrollTop from './components/ScrollTop';
 import User from './components/userProfile/User';
 import Cart from './components/Cart';
-import { ToastContainer, toast } from 'react-toastify';
+import Pendant from './components/ProductCategory/Pendant';
+import Ring from './components/ProductCategory/Ring';
+import Necklace from './components/ProductCategory/Necklace';
+import Earrings from './components/ProductCategory/Earrings';
+
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -19,15 +23,12 @@ function App() {
     setTimeout(() => setLoading(false), 500);
   }, []);
 
-
-
   if (loading) {
     return <Loading />;
   }
 
   return (
     <BrowserRouter>
-      <ToastContainer />
       <ScrollTop />
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -36,6 +37,13 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/userProfile" element={<User />} />
         <Route path="/cartlist" element={<Cart />} />
+
+        {/* Product Category Routes */}
+        <Route path='/Pendant' element={<Pendant />} />
+        <Route path='/Ring' element={<Ring />} />
+        <Route path='/Necklace' element={<Necklace />} />
+        <Route path='/Earrings' element={<Earrings />} />
+
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

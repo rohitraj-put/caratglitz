@@ -11,7 +11,9 @@ import { addToCart } from '../redux/actions';
 
 import { ToastContainer, toast } from 'react-toastify';
 
+
 function ProductCard({ item, addToWishlist, wishlist }) {
+
     const dispatch = useDispatch()
     const [data, setData] = useState(null);
     const [open, setOpen] = useState(false);
@@ -24,6 +26,7 @@ function ProductCard({ item, addToWishlist, wishlist }) {
 
     const cartHandler = () => {
         dispatch(addToCart(item))
+
         toast.success(`${item.proName} has been cart in the list`, {
             position: "top-right",
             autoClose: 1000,
@@ -35,6 +38,8 @@ function ProductCard({ item, addToWishlist, wishlist }) {
 
         });
     }
+
+
     return (
 
         <div className="container flex justify-center">
@@ -46,10 +51,13 @@ function ProductCard({ item, addToWishlist, wishlist }) {
                         onClick={() =>
                             addToWishlist(item)}
                     >
-                        {wishlist.some(wishlistItem => wishlistItem.id === item.id) ? <i className='text-rose-400'><IoIosHeart /></i> : <i className='text-rose-400'><CiHeart /></i>}
-
+                        {/* {wishlist.find(wishlistItem => wishlistItem.id === item.id) ?
+                            <i className='text-rose-400'><IoIosHeart /></i>
+                            :
+                            <i className='text-rose-400'><CiHeart /></i>
+                        } */}
                     </button>
-                    <Link to={`/product/${item.id} ${item.proName}`}>
+                    <Link to={`/product/${item.id}`} target='_blank'>
                         <div>
                             <img
                                 className="rounded-t-lg"
@@ -95,7 +103,7 @@ function ProductCard({ item, addToWishlist, wishlist }) {
                     <img className='absolute top-0' src={TopSelling} alt='top_selling' />
                 </div>
             </div>
-            {data && <QuickView data={data} open={open} setOpen={setOpen} />}
+            {data && <QuickView data={data} open={open} setOpen={setOpen} cartHandler={cartHandler} />}
         </div >
     );
 }

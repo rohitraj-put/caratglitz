@@ -43,6 +43,7 @@ function Home() {
             <Head />
             <Header />
             <Carousel />
+
             <ProductVeraity />
             <MidSec />
             <Products addToWishlist={addToWishlist} wishlist={wishlist} />
