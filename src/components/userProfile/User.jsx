@@ -1,15 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from '../Head';
 import Header from '../Header';
 import Footer from '../Footer';
 import { useNavigate } from 'react-router-dom';
-// import ReactImageMagnify from 'react-image-magnify';
-
-
-
-
 
 function User() {
+
     const navigate = useNavigate();
 
     const handleClearLocalStorage = () => {
@@ -18,6 +14,9 @@ function User() {
     };
     const getEmail = localStorage.getItem("emailData");
     const UserName = getEmail ? getEmail.slice(0, 5) : "Guest";
+
+
+
     return (
         <>
             <Head />
@@ -44,23 +43,6 @@ function User() {
                 />
             </div>
 
-            {/* <div className='w-80 h-80'>
-                <ReactImageMagnify {...{
-                    smallImage: {
-                        alt: 'Wristwatch by Ted Baker London',
-                        isFluidWidth: true,
-                        src: 'https://cdn.pixabay.com/photo/2017/06/13/12/54/profile-2398783_1280.png',
-
-                        sizes: '(max-width: 480px) 100vw, (max-width: 1200px) 30vw, 360px'
-                    },
-                    largeImage: {
-                        src: 'https://cdn.pixabay.com/photo/2017/06/13/12/54/profile-2398783_1280.png',
-                        width: 1200,
-                        height: 1800
-                    },
-
-                }} />
-            </div> */}
             <Footer />
         </>
     );

@@ -10,8 +10,12 @@ import Head from './Head';
 import Header from './Header';
 import Footer from './Footer';
 import Feedback from './Feedback';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../redux/actions';
+import { ToastContainer, toast } from 'react-toastify';
 
 function ProductDetail() {
+    const dispatch = useDispatch()
     const { id } = useParams();
     const product = ProductData.find(p => p.id === parseInt(id));
 
@@ -33,10 +37,47 @@ function ProductDetail() {
         );
     };
 
+    const cartHandler = (e) => {
+        dispatch(addToCart(product))
+        toast.success(`${product.proName} has been cart in the list`, {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+
+        });
+    }
+    const handleCheckout = (e) => {
+        e.preventDefault()
+        toast.success('Proceeding to checkout', {
+            position: "bottom-left",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+        setTimeout(() => {
+            toast.error('Sorry, payment gateway is disabled', {
+                position: "bottom-left",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }, 2800);
+    };
     return (
         <>
             <Head />
             <Header />
+            <ToastContainer />
             <div className="bg-white">
                 <div className="p-4 lg:max-w-7xl max-w-4xl mx-auto">
                     <div className="grid items-center grid-cols-1 lg:grid-cols-4 gap-12 p-6 rounded-lg">
@@ -119,13 +160,14 @@ function ProductDetail() {
                                 <button
                                     type="button"
                                     className="min-w-[200px] px-4 py-3 bg-rose-400 hover:bg-rose-500 text-white text-sm font-semibold rounded"
-                                    onClick={() => alert('You cannot buy right now')}
+                                    onClick={handleCheckout}
                                 >
                                     BUY NOW
                                 </button>
                                 <button
                                     type="button"
                                     className="min-w-[200px] px-4 py-2.5 border border-rose-400 bg-transparent hover:bg-rose-50 text-gray-800 text-sm font-semibold rounded"
+                                    onClick={cartHandler}
                                 >
                                     Add to cart
                                 </button>

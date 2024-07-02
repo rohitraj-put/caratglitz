@@ -8,12 +8,10 @@ import { CiHeart } from "react-icons/ci";
 import { IoIosHeart } from "react-icons/io";
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/actions';
-
 import { ToastContainer, toast } from 'react-toastify';
 
 
 function ProductCard({ item, addToWishlist, wishlist }) {
-
     const dispatch = useDispatch()
     const [data, setData] = useState(null);
     const [open, setOpen] = useState(false);
@@ -26,9 +24,8 @@ function ProductCard({ item, addToWishlist, wishlist }) {
 
     const cartHandler = () => {
         dispatch(addToCart(item))
-
         toast.success(`${item.proName} has been cart in the list`, {
-            position: "top-right",
+            position: "top-center",
             autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
@@ -38,7 +35,6 @@ function ProductCard({ item, addToWishlist, wishlist }) {
 
         });
     }
-
 
     return (
 
@@ -51,11 +47,11 @@ function ProductCard({ item, addToWishlist, wishlist }) {
                         onClick={() =>
                             addToWishlist(item)}
                     >
-                        {/* {wishlist.find(wishlistItem => wishlistItem.id === item.id) ?
+                        {wishlist?.find(wishlistItem => wishlistItem.id === item.id) ?
                             <i className='text-rose-400'><IoIosHeart /></i>
                             :
                             <i className='text-rose-400'><CiHeart /></i>
-                        } */}
+                        }
                     </button>
                     <Link to={`/product/${item.id}`} target='_blank'>
                         <div>
@@ -83,7 +79,7 @@ function ProductCard({ item, addToWishlist, wishlist }) {
                             <del className='pl-2'>{item.old_price}</del>
                         </div>
                         <div className="flex justify-center items-center text-xl text-amber-500">
-                            <FaStar /><FaStar /><FaStar /><FaStar />
+                            {[...Array(4)].map((_, i) => <FaStar key={i} />)}
                         </div>
                     </div>
                     <div className='m-2'>

@@ -8,16 +8,12 @@ import { MdCurrencyRupee } from "react-icons/md";
 import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 
-
-
 const Cart = () => {
     const cart = useSelector(state => state.cart);
     const dispatch = useDispatch();
-    const shippingCost = 199.50;
 
     const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-
-    const total = subtotal + shippingCost;
+    const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
 
     const handleCheckout = () => {
         toast.success('Proceeding to checkout', {
@@ -28,7 +24,7 @@ const Cart = () => {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-        })
+        });
         setTimeout(() => {
             toast.error('Sorry, payment gateway is disabled', {
                 position: "bottom-left",
@@ -41,7 +37,9 @@ const Cart = () => {
             });
         }, 2800);
     };
-    localStorage.setItem("cartNumber", cart.length);
+
+    localStorage.setItem("cartItems", cart.length);
+
     return (
         <>
             <Head />
@@ -59,7 +57,7 @@ const Cart = () => {
                             return (
                                 <div key={item.id} className='mb-6 '>
                                     <div className="rounded-lg md:w-full m-auto">
-                                        <div className="justify-between relative mb-4 rounded-lg bg-white p-2 border  sm:flex sm:justify-start">
+                                        <div className="justify-between relative mb-4 rounded-lg bg-white p-2 border sm:flex sm:justify-start">
                                             <button className='absolute top-4 right-4 bg-gray-100 rounded-full p-2' onClick={() => dispatch(removeFromCart(item.id))}><RxCross2 /></button>
 
                                             <img
@@ -83,7 +81,7 @@ const Cart = () => {
 
                                                     <div className="flex items-center border-gray-100 py-6">
                                                         <span className='pr-2'>Quantity:</span>
-                                                        <button className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-rose-400 hover:text-rose-40"
+                                                        <button className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-rose-400 hover:text-rose-40 hover:text-white"
                                                             onClick={() => dispatch(decreaseQuantity(item.id))}
                                                         >
                                                             -
@@ -91,7 +89,7 @@ const Cart = () => {
 
                                                         <span className='py-1 px-3'>{item.quantity}</span>
 
-                                                        <button className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-rose-400 hover:text-rose-40"
+                                                        <button className="cursor-pointer rounded-r bg-gray-100 py-1 mr-2 px-3 duration-100 hover:bg-rose-400 hover:text-rose-40 hover:text-white"
                                                             onClick={() => {
                                                                 if (item.quantity < 3) {
                                                                     dispatch(increaseQuantity(item.id))
@@ -110,12 +108,11 @@ const Cart = () => {
                                                         >
                                                             +
                                                         </button>
-
                                                     </div>
                                                 </div>
                                                 <div className="mt-4 pt-24 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                                                     <Link to={`/product/${item.id} ${item.proName}`}>
-                                                        <button className='bg-rose-400 text-white rounded px-8 py-2 hover:bg-rose-500 duration-100'>View Item</button>
+                                                        <button className='bg-rose-400 text-white rounded px-4 py-2 hover:bg-rose-500 duration-100'>View Item</button>
                                                     </Link>
                                                 </div>
                                             </div>
@@ -130,12 +127,22 @@ const Cart = () => {
                 {cart.length === 0 ? "" : <div className="mt-6 h-full rounded-lg border sticky top-20 bg-white p-6 shadow-md md:mt-0 md:w-1/3">
                     <ToastContainer />
                     <div className="mb-2 flex justify-between">
+                        <p className="text-gray-700 font-bold">Order summary (Total items: {totalQuantity})</p>
+                    </div>
+                    <div className="mb-2 flex justify-between">
+                        <p className="text-gray-700">Shipping charges are free, and taxes are included in the price.</p>
+                    </div>
+                    <div className="mb-2 flex justify-between">
                         <p className="text-gray-700">Subtotal</p>
                         <p className="text-gray-700">{subtotal.toFixed(2)}</p>
                     </div>
-                    <div className="flex justify-between">
+                    <div className="mb-2 flex justify-between">
+                        <p className="text-gray-700">Transit Insurance</p>
+                        <p className="text-gray-700">Inclusive</p>
+                    </div>
+                    <div className="mb-2 flex justify-between">
                         <p className="text-gray-700">Shipping</p>
-                        <p className="text-gray-700">{shippingCost.toFixed(2)}</p>
+                        <p className="text-gray-700 font-bold">FREE</p>
                     </div>
 
                     <hr className="my-4" />
@@ -144,7 +151,7 @@ const Cart = () => {
                         <div className="">
                             <div className='flex items-center mb-1 text-lg font-bold'>
                                 <i><MdCurrencyRupee /></i>
-                                <p>{total.toFixed(2)}</p>
+                                <p>{subtotal.toFixed(2)}</p>
                             </div>
                             <p className="text-sm text-gray-700">including GST</p>
                         </div>
@@ -152,14 +159,12 @@ const Cart = () => {
                     <button
                         className="mt-6 w-full rounded-md bg-rose-400 py-1.5 font-medium text-rose-50 hover:bg-rose-500"
                         onClick={handleCheckout}
-
                     >
-                        Procced to Checkout
+                        Proceed to Checkout
                     </button>
                     <p className='py-4'>All major payment methods are accepted, including UPI, credit cards, debit cards, PayPal, and Net Banking.</p>
-
                 </div>}
-            </div >
+            </div>
         </>
     );
 };

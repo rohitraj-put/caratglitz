@@ -5,11 +5,15 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { MdCurrencyRupee } from "react-icons/md";
 
+
 import {
     TransformWrapper,
     TransformComponent,
     useControls
 } from "react-zoom-pan-pinch";
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../redux/actions'
+import { ToastContainer, toast } from 'react-toastify'
 
 const product = {
     rating: 3.9,
@@ -31,7 +35,8 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-function QuickView({ data, open, setOpen, cartHandler }) {
+function QuickView({ data, open, setOpen }) {
+    const dispatch = useDispatch()
     const [showImage, setShowImage] = useState(data ? data.imgsrc : '');
     const [selectedSize, setSelectedSize] = useState(product.sizes[2])
 
@@ -44,8 +49,46 @@ function QuickView({ data, open, setOpen, cartHandler }) {
             </div>
         );
     };
+    const cartHandler = (e) => {
+        e.preventDefault()
+        dispatch(addToCart(data))
+        toast.success(`${data.proName} has been cart in the list`, {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+
+        });
+    }
+    const handleCheckout = (e) => {
+        e.preventDefault()
+        toast.success('Proceeding to checkout', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+        setTimeout(() => {
+            toast.error('Sorry, payment gateway is disabled', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }, 2800);
+    };
     return (
         <>
+            <ToastContainer />
             <Transition show={open}>
                 <Dialog className="relative z-10" onClose={setOpen}>
                     <TransitionChild
@@ -212,6 +255,7 @@ function QuickView({ data, open, setOpen, cartHandler }) {
                                                             <button
                                                                 type="submit"
                                                                 className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-rose-400 px-8 py-3 text-base font-medium text-white hover:bg-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2"
+                                                                onClick={handleCheckout}
                                                             >
                                                                 Buy Now
                                                             </button>

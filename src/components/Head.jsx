@@ -7,17 +7,37 @@ import { FaLocationDot } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import ProductData from '../data/ProductData';
 
+const conversionRates = {
+    'INR': 1,
+    'AED': 0.05,
+    'USD': 0.012,
+    'EUR': 0.011,
+    'ZWD': 0.003
+};
+
+const countryCurrencyMap = {
+    'India': 'INR',
+    'Dubai': 'AED',
+    'New York': 'USD',
+    'London': 'USD',
+    'Harare': 'ZWD',
+    'Italy': 'EUR'
+};
+
 function Head() {
     const [query, setQuery] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const getEmail = localStorage.getItem("emailData");
-    const cartItemNumber = localStorage.getItem("cartNumber");
+    const cartItemNumber = localStorage.getItem("cartItems");
     let UserName = getEmail ? getEmail.slice(0, 5) : "Guest";
 
     const [selectedCountry, setSelectedCountry] = useState('India');
+    const [selectedCurrency, setSelectedCurrency] = useState('INR');
 
     const handleCountryChange = (e) => {
-        setSelectedCountry(e.target.value);
+        const country = e.target.value;
+        setSelectedCountry(country);
+        setSelectedCurrency(countryCurrencyMap[country]);
     };
 
     const countryFlags = {
@@ -25,7 +45,8 @@ function Head() {
         Dubai: 'https://cdn2.iconfinder.com/data/icons/world-flags-1-1/100/uae-512.png',
         'New York': 'https://www.pngall.com/wp-content/uploads/12/USA-Flag-PNG-File.png',
         London: 'https://www.pngall.com/wp-content/uploads/12/USA-Flag-PNG-File.png',
-        Harare: 'https://static.vecteezy.com/system/resources/previews/015/272/144/non_2x/zimbabwe-3d-rounded-flag-with-transparent-background-free-png.png'
+        Harare: 'https://static.vecteezy.com/system/resources/previews/015/272/144/non_2x/zimbabwe-3d-rounded-flag-with-transparent-background-free-png.png',
+        Italy: 'https://static.vecteezy.com/system/resources/previews/011/571/348/non_2x/circle-flag-of-italy-free-png.png'
     };
 
     const profileItems = [
@@ -37,15 +58,16 @@ function Head() {
                     value={selectedCountry}
                     onChange={handleCountryChange}
                 >
-                    <option value="India">India</option>
-                    <option value="Dubai">Dubai</option>
-                    <option value="New York">New York</option>
-                    <option value="London">London</option>
-                    <option value="Harare">Harare</option>
+                    <option value="India">India: INR ₹</option>
+                    <option value="Dubai">Dubai: AED</option>
+                    <option value="New York">New York: USD $</option>
+                    <option value="London">London: USD $</option>
+                    <option value="Harare">Harare:USD $</option>
+                    <option value="Italy">Italy:EUR €</option>
                 </select>
             )
         },
-        { link: "/stores", icon: <FaLocationDot />, label: 'Stores' },
+        { icon: <FaLocationDot />, label: selectedCountry },
         { icon: <FaRegHeart />, label: 'Wishlist' },
         {
             link: "/cartlist",
@@ -57,7 +79,7 @@ function Head() {
                     </span>}
                 </div>, label: 'Cart'
         },
-        { link: "/userProfile", icon: <img className='w-6 h-6' src='https://cdn.pixabay.com/photo/2017/06/13/12/54/profile-2398783_1280.png' alt='Profile' />, label: UserName }
+        { link: "/contact", icon: <img className='w-6 h-6 ' src='https://cdn.pixabay.com/photo/2017/06/13/12/54/profile-2398783_1280.png' alt='Profile' />, label: UserName }
     ];
 
     const handleInputChange = (e) => {
@@ -67,7 +89,6 @@ function Head() {
             const filteredSuggestions = ProductData.filter((item) =>
                 item.category.toLowerCase().includes(value.toLowerCase())
             );
-
 
             const uniqueCategories = Array.from(new Set(filteredSuggestions.map(item => item.category)));
 
@@ -82,8 +103,13 @@ function Head() {
         setSuggestions([]);
     };
 
+    const convertPrice = (priceInINR) => {
+        const rate = conversionRates[selectedCurrency];
+        return (priceInINR * rate).toFixed(2);
+    };
+    console.log(convertPrice)
     return (
-        <div className='head_color flex justify-between items-center pt-2 pb-2 px-5 text-black sm:text-xxl'>
+        <div className='head_color  flex justify-between items-center pt-2 pb-2 px-5 text-black sm:text-xxl'>
             <div>
                 <Link to="/">
                     <img className='w-20 h-16' src={logo} alt="Logo" />
@@ -92,36 +118,40 @@ function Head() {
             <div className='flex justify-between items-center w-full md:w-60 p-2 max-md:justify-around max-md:hidden'>
                 <div className="flex items-center justify-center w-full">
                     <div className="relative w-full md:w-auto">
+
                         <input
                             type="text"
-                            className="border-b w-full md:w-60 border-rose-400 py-1 focus:border-b-2 focus:border-rose-400 transition-colors focus:outline-none peer bg-inherit"
+                            className="border mt-0.5 border-gray-300 rounded-full w-72  text-gray-600 p-2 bg-white hover:border-gray-400 focus:outline-none appearance-none"
                             placeholder='Search Item..'
                             value={query}
                             onChange={handleInputChange}
                         />
-                        <div className=' absolute top-9 bg-slate-200 z-10'>
+
+                        <div className=' absolute top-11 left-10 bg-slate-200 z-[1000]'>
                             {suggestions.length > 0 && (
                                 <ul>
                                     {suggestions.map((category, index) => (
-                                        <li
-                                            key={index}
-                                            onClick={() => handleSuggestionClick(category)}
-                                            className='px-8 py-2 cursor-pointer hover:text-white hover:bg-rose-400'
-                                        >
-                                            {category}
-                                        </li>
+                                        <Link to={`/${category}`} key={index}>
+                                            <li
+                                                onClick={() => handleSuggestionClick(category)}
+                                                className='px-16 py-1 cursor-pointer hover:text-white hover:bg-rose-400'
+                                            >
+                                                {category}
+                                            </li>
+                                        </Link>
                                     ))}
                                 </ul>
                             )}
                         </div>
                     </div>
                 </div>
-                <Link
-                    className='text-2xl bg-rose-400 p-2 text-white rounded-full cursor-pointer'
-                    to={`/${query}`}
+                <i
+                    className='text-2xl bg-rose-400 ml-[-8px] mt-0.5 p-2  text-white rounded-full cursor-pointer z-10'
                 >
                     <FaSearch />
-                </Link>
+                </i>
+
+
             </div>
             <div className='flex justify-between items-center gap-5 head_profile'>
                 <ul className='flex justify-between items-center gap-4 text-center'>

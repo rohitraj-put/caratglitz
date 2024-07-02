@@ -15,7 +15,7 @@ function Header() {
 
     return (
         <>
-            <header className="header  top-0 shadow-md flex items-center justify-between px-8  text-black  max-md:px-4">
+            <header className="header sticky z-10  top-0 shadow-md flex items-center justify-between px-8  text-black  max-md:px-4">
                 <nav className="nav font-semibold text-lg">
                     <div className='text-4xl md:hidden'>
                         <IoReorderThreeOutline />

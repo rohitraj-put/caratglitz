@@ -246,6 +246,7 @@ footer ul li a:hover {
   color: var(--bg-color);
 }
 
+
 @keyframes downOut {
   0% {
     opacity: 0;
