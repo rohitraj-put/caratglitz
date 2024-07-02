@@ -12,7 +12,7 @@ Currently, two official plugins are available:
 Want to run demos locally
 
 ```bash
-git clone [https://github.com/akiran/react-slick](https://github.com/rohitraj-put/caratglitz.git)
+git clone [https://github.com/rohitraj-put/caratglitz.git]
 cd caratglitz
 npm install
 npm run dev
