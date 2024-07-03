@@ -18,3 +18,4 @@ npm run dev
 open http://localhost:3000
 ```
 
+![Logo](./src/assets/image/website.png)
