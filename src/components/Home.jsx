@@ -44,13 +44,13 @@ function Home() {
             <div className='fixed bottom-0 left-0 z-10 m-2 '>
                 <CookieConsent />
             </div>
-            <Head />
+            <Head send={<Wishlist wishlist={wishlist} removeFromWishlist={removeFromWishlist} />} />
             <Header />
             <Carousel />
             <ProductVeraity />
             <MidSec />
             <Products addToWishlist={addToWishlist} wishlist={wishlist} />
-            <Wishlist wishlist={wishlist} removeFromWishlist={removeFromWishlist} />
+
             <ProductSlider />
             <ProductFeature />
             <AnimatedNumber />

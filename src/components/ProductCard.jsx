@@ -53,7 +53,7 @@ function ProductCard({ item, addToWishlist, wishlist }) {
                             <i className='text-rose-400'><CiHeart /></i>
                         }
                     </button>
-                    <Link to={`/product/${item.id}`} target='_blank'>
+                    <Link to={`/product/${item.id}`} >
                         <div>
                             <img
                                 className="rounded-t-lg"

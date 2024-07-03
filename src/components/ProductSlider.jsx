@@ -8,6 +8,7 @@ import pendents from '../assets/image/Pendants.jpg'
 import ring from '../assets/image/ring.jpg'
 import Aos from 'aos';
 import 'aos/dist/aos.css'
+import { Link } from "react-router-dom";
 
 function ProductSlider() {
     useEffect(() => {
@@ -30,22 +31,26 @@ function ProductSlider() {
     const slider_card = [
         {
             img_name: "https://static.malabargoldanddiamonds.com/media/wysiwyg/offer_page/2024/04_april/homepage/Gemstone-ring.jpg",
+            Link: "/Ring"
         },
         {
             img_name: "https://static.malabargoldanddiamonds.com/media/wysiwyg/offer_page/2024/04_april/homepage/gemstone-earring.jpg",
+            Link: "/Earrings"
 
         },
         {
             img_name: "https://static.malabargoldanddiamonds.com/media/wysiwyg/offer_page/2024/04_april/homepage/gemstone-necklace.jpg",
+            Link: "/Necklace"
 
         },
         {
             img_name: "https://static.malabargoldanddiamonds.com/media/wysiwyg/offer_page/2024/04_april/homepage/Gemstone-pendant.jpg",
+            Link: "/Pendant"
 
         },
         {
             img_name: "https://static.malabargoldanddiamonds.com/media/wysiwyg/offer_page/2024/04_april/homepage/Gemstone-bangle.jpg",
-
+            Link: "#"
         },
 
     ]
@@ -57,8 +62,9 @@ function ProductSlider() {
                 {
                     slider_card.map((item, index) => <div className="slider_card rounded-3xl" key={index}
                         data-aos-anchor-placement="top-bottom">
-                        <img className="p-2 rounded-3xl" src={item.img_name} alt="products_slider_image" />
-                        <h1 className="slider_contant">{item.pro_name}</h1>
+                        <Link to={`${item.Link}`}>
+                            <img className="p-2 rounded-3xl" src={item.img_name} alt="products_slider_image" />
+                        </Link>
                     </div>)
                 }
             </Slider>

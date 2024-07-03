@@ -6,6 +6,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import ProductData from '../data/ProductData';
+import QuickWishlist from './QuickWishlist';
 
 const conversionRates = {
     'INR': 1,
@@ -24,7 +25,8 @@ const countryCurrencyMap = {
     'Italy': 'EUR'
 };
 
-function Head() {
+function Head({ send }) {
+    const [open, setOpen] = useState(false);
     const [query, setQuery] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const getEmail = localStorage.getItem("emailData");
@@ -38,6 +40,9 @@ function Head() {
         const country = e.target.value;
         setSelectedCountry(country);
         setSelectedCurrency(countryCurrencyMap[country]);
+    };
+    const handleQuickView = () => {
+        setOpen(true);
     };
 
     const countryFlags = {
@@ -68,7 +73,7 @@ function Head() {
             )
         },
         { icon: <FaLocationDot />, label: selectedCountry },
-        { icon: <FaRegHeart />, label: 'Wishlist' },
+        { icon: <i onClick={() => handleQuickView()}> <FaRegHeart /></i>, label: 'Wishlist' },
         {
             link: "/cartlist",
             icon:
@@ -109,68 +114,71 @@ function Head() {
     };
     console.log(convertPrice)
     return (
-        <div className='head_color  flex justify-between items-center pt-2 pb-2 px-5 text-black sm:text-xxl'>
-            <div>
-                <Link to="/">
-                    <img className='w-20 h-16' src={logo} alt="Logo" />
-                </Link>
-            </div>
-            <div className='flex justify-between items-center w-full md:w-60 p-2 max-md:justify-around max-md:hidden'>
-                <div className="flex items-center justify-center w-full">
-                    <div className="relative w-full md:w-auto">
+        <>
+            <div className='head_color  flex justify-between items-center pt-2 pb-2 px-5 text-black sm:text-xxl'>
+                <div>
+                    <Link to="/">
+                        <img className='w-20 h-16' src={logo} alt="Logo" />
+                    </Link>
+                </div>
+                <div className='flex justify-between items-center w-full md:w-60 p-2 max-md:justify-around max-md:hidden'>
+                    <div className="flex items-center justify-center w-full">
+                        <div className="relative w-full md:w-auto">
 
-                        <input
-                            type="text"
-                            className="border mt-0.5 border-gray-300 rounded-full w-72  text-gray-600 p-2 bg-white hover:border-gray-400 focus:outline-none appearance-none"
-                            placeholder='Search Item..'
-                            value={query}
-                            onChange={handleInputChange}
-                        />
+                            <input
+                                type="text"
+                                className="border mt-0.5 border-gray-300 rounded-full w-72  text-gray-600 p-2 bg-white hover:border-gray-400 focus:outline-none appearance-none"
+                                placeholder='Search Item..'
+                                value={query}
+                                onChange={handleInputChange}
+                            />
 
-                        <div className=' absolute top-11 left-10 bg-slate-200 z-[1000]'>
-                            {suggestions.length > 0 && (
-                                <ul>
-                                    {suggestions.map((category, index) => (
-                                        <Link to={`/${category}`} key={index}>
-                                            <li
-                                                onClick={() => handleSuggestionClick(category)}
-                                                className='px-16 py-1 cursor-pointer hover:text-white hover:bg-rose-400'
-                                            >
-                                                {category}
-                                            </li>
-                                        </Link>
-                                    ))}
-                                </ul>
-                            )}
+                            <div className=' absolute top-11 left-10 bg-slate-200 z-[1000]'>
+                                {suggestions.length > 0 && (
+                                    <ul>
+                                        {suggestions.map((category, index) => (
+                                            <Link to={`/${category}`} key={index}>
+                                                <li
+                                                    onClick={() => handleSuggestionClick(category)}
+                                                    className='px-16 py-1 cursor-pointer hover:text-white hover:bg-rose-400'
+                                                >
+                                                    {category}
+                                                </li>
+                                            </Link>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
                         </div>
                     </div>
+                    <i
+                        className='text-2xl bg-rose-400 ml-[-8px] mt-0.5 p-2  text-white rounded-full cursor-pointer z-10'
+                    >
+                        <FaSearch />
+                    </i>
+
+
                 </div>
-                <i
-                    className='text-2xl bg-rose-400 ml-[-8px] mt-0.5 p-2  text-white rounded-full cursor-pointer z-10'
-                >
-                    <FaSearch />
-                </i>
-
-
-            </div>
-            <div className='flex justify-between items-center gap-5 head_profile'>
-                <ul className='flex justify-between items-center gap-4 text-center'>
-                    {profileItems.map((item, index) => (
-                        <Link to={item.link} key={index}>
-                            <li className={`text-2xl cursor-pointer hover:text-rose-400 ${index === 0 ? 'flex items-center' : ''}`}>
-                                {item.icon}
-                                <p className={`text-sm capitalize ${index === 0 ? "" : "hidden"} md:block`}>{item.label}</p>
+                <div className='flex justify-between items-center gap-5 head_profile'>
+                    <ul className='flex justify-between items-center gap-4 text-center'>
+                        {profileItems.map((item, index) => (
+                            <Link to={item.link} key={index}>
+                                <li className={`text-2xl cursor-pointer hover:text-rose-400 ${index === 0 ? 'flex items-center' : ''}`}>
+                                    {item.icon}
+                                    <p className={`text-sm capitalize ${index === 0 ? "" : "hidden"} md:block`}>{item.label}</p>
+                                </li>
+                            </Link>
+                        ))}
+                        {
+                            getEmail ? "" : <li className="border-black duration-200 cursor-pointer hidden md:block">
+                                <Link to="/contact" className='hover:text-rose-400'> <button className='bg-rose-400 px-4 py-1 text-white rounded'>Log In</button></Link>
                             </li>
-                        </Link>
-                    ))}
-                    {
-                        getEmail ? "" : <li className="border-black duration-200 cursor-pointer hidden md:block">
-                            <Link to="/contact" className='hover:text-rose-400'> <button className='bg-rose-400 px-4 py-1 text-white rounded'>Log In</button></Link>
-                        </li>
-                    }
-                </ul>
-            </div>
-        </div >
+                        }
+                    </ul>
+                </div>
+            </div >
+            {<QuickWishlist open={open} setOpen={setOpen} send={send} />}
+        </>
     );
 }
 

@@ -38,7 +38,7 @@ function Products({ addToWishlist, wishlist }) {
                     <h2 className="text-3xl py-10 font-bold text-center tracking-tight text-rose-400 sm:text-4xl">
                         Customers Also Purchased
                     </h2>
-                    <div className='flex justify-center gap-6'>
+                    <div className='flex justify-center flex-wrap gap-6'>
                         <div className="flex items-center mb-8">
                             <span className='mr-1'>Category :</span>
                             <select
