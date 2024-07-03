@@ -6,6 +6,7 @@ import { MdCurrencyRupee } from "react-icons/md";
 import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
+import Header from './Header';
 
 const Cart = () => {
     const cart = useSelector(state => state.cart);
@@ -42,6 +43,7 @@ const Cart = () => {
     return (
         <>
             <Navbar />
+            <Header />
             <h2 className='text-center text-3xl text-rose-400 font-bold py-10'>My Shopping Cart</h2>
 
             <div className='flex justify-center flex-wrap gap-16'>

@@ -2,6 +2,7 @@ import React from 'react';
 import Footer from '../Footer';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../Navbar';
+import Header from '../Header';
 
 function User() {
 
@@ -19,6 +20,7 @@ function User() {
     return (
         <>
             <Navbar />
+            <Header />
             <div className='flex justify-between items-center p-10'>
                 <h1 className='text-3xl'>
                     Welcome, <span className='text-rose-400 text-4xl uppercase font-bold'>{UserName}</span>

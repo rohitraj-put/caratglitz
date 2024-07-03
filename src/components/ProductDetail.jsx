@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/actions';
 import { ToastContainer, toast } from 'react-toastify';
 import Navbar from './Navbar';
+import Header from './Header';
 
 function ProductDetail() {
     const dispatch = useDispatch()
@@ -75,6 +76,7 @@ function ProductDetail() {
     return (
         <>
             <Navbar />
+            <Header />
             <ToastContainer />
             <div className="bg-white">
                 <div className="p-4 lg:max-w-7xl max-w-4xl mx-auto">

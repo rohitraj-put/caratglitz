@@ -39,9 +39,9 @@ function MidSec() {
                 <h2 className="text-3xl font-bold text-center tracking-tight text-rose-400 sm:text-4xl">Collections</h2>
                 <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
                     {collections.map((collection, index) => (
-                        <div key={index} className="group relative">
+                        <div key={index} className="group relative overflow-hidden">
                             <div
-                                className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64"
+                                className="relative h-80 w-full  rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64"
                                 data-aos={collection.animation}
                             >
                                 <img

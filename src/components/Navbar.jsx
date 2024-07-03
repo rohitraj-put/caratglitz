@@ -134,12 +134,12 @@ function Navbar({ send }) {
                             <div className='flex items-center'>
                                 <img className='w-6 h-6' src={countryFlags[selectedCountry]} alt='Country Flag' />
                                 <select
-                                    className='border mt-0.5 border-gray-300 rounded-full text-gray-600 p-1 bg-white hover:border-gray-400  focus:outline-none appearance-none'
+                                    className='border mt-0.5 border-gray-300 rounded-full text-gray-600 px-4 py-1 bg-white hover:border-gray-400  focus:outline-none appearance-none'
                                     value={selectedCountry}
                                     onChange={handleCountryChange}
                                 >
                                     {Object.keys(countryFlags).map((country, index) => (
-                                        <option key={index} value={country}>
+                                        <option key={index} value={country} >
                                             {country}
                                         </option>
                                     ))}

@@ -8,7 +8,7 @@ import AnimatedNumber from './AnimatedNumber'
 import Feedback from './Feedback'
 import ProductVeraity from './ProductVeraity'
 import Category from './Category'
-import Head from './Head'
+
 import Header from './Header'
 import Footer from './Footer'
 import Wishlist from './Wishlist'

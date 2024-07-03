@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './Navbar';
+import Header from './Header';
 
 function Contact() {
     const navigate = useNavigate();
@@ -58,6 +59,7 @@ function Contact() {
         <>
             <ToastContainer />
             <Navbar />
+            <Header />
             <section className="min-h-80 mt-6 flex box-border justify-center items-center">
                 <div className="bg-white rounded flex max-w-3xl py-5 items-center shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)]">
                     <div className="md:w-1/2 px-8">
