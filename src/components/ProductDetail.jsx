@@ -6,13 +6,12 @@ import { useParams } from 'react-router-dom';
 import ProductData from '../data/ProductData';
 import ProductCard from './ProductCard';
 import { TransformWrapper, TransformComponent, useControls } from "react-zoom-pan-pinch";
-import Head from './Head';
-import Header from './Header';
 import Footer from './Footer';
 import Feedback from './Feedback';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/actions';
 import { ToastContainer, toast } from 'react-toastify';
+import Navbar from './Navbar';
 
 function ProductDetail() {
     const dispatch = useDispatch()
@@ -75,8 +74,7 @@ function ProductDetail() {
     };
     return (
         <>
-            <Head />
-            <Header />
+            <Navbar />
             <ToastContainer />
             <div className="bg-white">
                 <div className="p-4 lg:max-w-7xl max-w-4xl mx-auto">

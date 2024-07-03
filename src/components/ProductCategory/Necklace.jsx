@@ -1,9 +1,9 @@
 import React from 'react';
-import Head from '../Head';
-import Header from '../Header';
+
 import ProductData from '../../data/ProductData';
 import ProductCard from '../ProductCard';
 import Footer from '../Footer'
+import Navbar from '../Navbar';
 
 function Necklace() {
 
@@ -11,8 +11,7 @@ function Necklace() {
 
     return (
         <>
-            <Head />
-            <Header />
+            <Navbar />
             <h2 className="text-3xl py-10 font-bold text-center capitalize tracking-tight text-rose-400 sm:text-4xl">
                 the best Necklaces collection
             </h2>

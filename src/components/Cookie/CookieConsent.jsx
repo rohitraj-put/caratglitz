@@ -39,7 +39,6 @@ const CookieConsent = () => {
                 Cookies.set('preferences', 'enabled', { expires: 365 });
             }
         } else {
-            // If consent not accepted, set default cookies for all sections
             Cookies.set('analytics', 'enabled', { expires: 365 });
             Cookies.set('marketing', 'enabled', { expires: 365 });
             Cookies.set('preferences', 'enabled', { expires: 365 });
@@ -75,7 +74,7 @@ const CookieConsent = () => {
     };
 
     return (
-        consentAccepted ?
+        !consentAccepted ?
             <div className="cookie-consent bg-gray-100 w-80 p-4 rounded">
                 <div className='flex text-rose-400 justify-center'>
                     <i className='text-4xl mr-4'><FaCookieBite /></i>

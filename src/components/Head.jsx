@@ -8,22 +8,7 @@ import { Link } from 'react-router-dom';
 import ProductData from '../data/ProductData';
 import QuickWishlist from './QuickWishlist';
 
-const conversionRates = {
-    'INR': 1,
-    'AED': 0.05,
-    'USD': 0.012,
-    'EUR': 0.011,
-    'ZWD': 0.003
-};
 
-const countryCurrencyMap = {
-    'India': 'INR',
-    'Dubai': 'AED',
-    'New York': 'USD',
-    'London': 'USD',
-    'Harare': 'ZWD',
-    'Italy': 'EUR'
-};
 
 function Head({ send }) {
     const [open, setOpen] = useState(false);
@@ -108,11 +93,7 @@ function Head({ send }) {
         setSuggestions([]);
     };
 
-    const convertPrice = (priceInINR) => {
-        const rate = conversionRates[selectedCurrency];
-        return (priceInINR * rate).toFixed(2);
-    };
-    console.log(convertPrice)
+
     return (
         <>
             <div className='head_color  flex justify-between items-center pt-2 pb-2 px-5 text-black sm:text-xxl'>
@@ -133,7 +114,7 @@ function Head({ send }) {
                                 onChange={handleInputChange}
                             />
 
-                            <div className=' absolute top-11 left-10 bg-slate-200 z-[1000]'>
+                            <div className=' absolute top-11 left-10 bg-gray-50 z-[1000]'>
                                 {suggestions.length > 0 && (
                                     <ul>
                                         {suggestions.map((category, index) => (

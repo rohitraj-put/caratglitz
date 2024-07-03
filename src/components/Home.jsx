@@ -14,6 +14,7 @@ import Footer from './Footer'
 import Wishlist from './Wishlist'
 import { ToastContainer, toast } from 'react-toastify'
 import CookieConsent from './Cookie/CookieConsent'
+import Navbar from './Navbar'
 
 function Home() {
     const [wishlist, setWishlist] = useState([]);
@@ -44,13 +45,12 @@ function Home() {
             <div className='fixed bottom-0 left-0 z-10 m-2 '>
                 <CookieConsent />
             </div>
-            <Head send={<Wishlist wishlist={wishlist} removeFromWishlist={removeFromWishlist} />} />
+            <Navbar send={<Wishlist wishlist={wishlist} removeFromWishlist={removeFromWishlist} />} />
             <Header />
             <Carousel />
             <ProductVeraity />
             <MidSec />
             <Products addToWishlist={addToWishlist} wishlist={wishlist} />
-
             <ProductSlider />
             <ProductFeature />
             <AnimatedNumber />

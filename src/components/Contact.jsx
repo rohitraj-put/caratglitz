@@ -1,13 +1,11 @@
 import React, { useRef } from 'react';
 import daimond from '../assets/image/daimond.mp4';
-
-import Head from './Head';
-import Header from './Header';
 import Footer from './Footer';
 import User from './userProfile/User';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Navbar from './Navbar';
 
 function Contact() {
     const navigate = useNavigate();
@@ -59,8 +57,7 @@ function Contact() {
     return (
         <>
             <ToastContainer />
-            <Head />
-            <Header />
+            <Navbar />
             <section className="min-h-80 mt-6 flex box-border justify-center items-center">
                 <div className="bg-white rounded flex max-w-3xl py-5 items-center shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)]">
                     <div className="md:w-1/2 px-8">

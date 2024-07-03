@@ -1,11 +1,5 @@
 import React, { useEffect } from "react";
 import Slider from "react-slick";
-import nosering from '../assets/image/nosering.png'
-import nosepin from '../assets/image/nosepin.png'
-import bracelet from '../assets/image/Shop by cat -Bracelets.jpg'
-import Earrings from '../assets/image/Shop by cat - Earring.png'
-import pendents from '../assets/image/Pendants.jpg'
-import ring from '../assets/image/ring.jpg'
 import Aos from 'aos';
 import 'aos/dist/aos.css'
 import { Link } from "react-router-dom";

@@ -1,17 +1,15 @@
 import React from 'react';
-import Head from '../Head';
-import Header from '../Header';
 import ProductData from '../../data/ProductData';
 import ProductCard from '../ProductCard';
 import Footer from '../Footer'
+import Navbar from '../Navbar';
 
 function Pendant() {
     const filteredProducts = ProductData.filter(item => item.category === 'Pendant');
 
     return (
         <>
-            <Head />
-            <Header />
+            <Navbar />
             <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-6 lg:px-8">
                 <h2 className="text-3xl py-10 font-bold text-center capitalize tracking-tight text-rose-400 sm:text-4xl">
                     The Best Pendant Collection
