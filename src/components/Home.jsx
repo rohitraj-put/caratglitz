@@ -45,7 +45,7 @@ function Home() {
             <div className='fixed bottom-0 left-0 z-10 m-2 '>
                 <CookieConsent />
             </div>
-            <Navbar send={<Wishlist wishlist={wishlist} removeFromWishlist={removeFromWishlist} />} />
+            <Navbar wishlist={wishlist} send={<Wishlist wishlist={wishlist} removeFromWishlist={removeFromWishlist} />} />
             <Header />
             <Carousel />
             <ProductVeraity />

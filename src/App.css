@@ -20,11 +20,6 @@
   background-color: #F6F5F2 !important;
 }
 
-.header {
-  background-color: rgba(255, 255, 255, 0.918) !important;
-  backdrop-filter: blur(100px);
-}
-
 i {
   padding-top: 2px;
 }
@@ -154,13 +149,11 @@ nav ul li a {
   border: 2px solid rgb(251 113 133);
   cursor: pointer;
   overflow: hidden;
-
-
 }
 
 .product_variety::-webkit-scrollbar {
-  width: 20px !important;
-  height: 5px;
+  width: 10px !important;
+  height: 2px;
 }
 
 .product_variety::-webkit-scrollbar-thumb {

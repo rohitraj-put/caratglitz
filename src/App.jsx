@@ -19,6 +19,7 @@ import Earrings from './components/ProductCategory/Earrings';
 function App() {
   const [loading, setLoading] = useState(true);
 
+
   useEffect(() => {
     setTimeout(() => setLoading(false), 500);
   }, []);
