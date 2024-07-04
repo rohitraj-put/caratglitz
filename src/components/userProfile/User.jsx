@@ -1,22 +1,11 @@
 import React from 'react';
 import Footer from '../Footer';
-import { useNavigate } from 'react-router-dom';
 import Navbar from '../Navbar';
 import Header from '../Header';
 
 function User() {
-
-    const navigate = useNavigate();
-
-    const handleClearLocalStorage = () => {
-        localStorage.clear();
-        navigate('/');
-    };
     const getEmail = localStorage.getItem("emailData");
-    const UserName = getEmail ? getEmail.slice(0, 5) : "Guest";
-
-
-
+    let UserName = getEmail ? getEmail.slice(0, 5) : "Guest";
     return (
         <>
             <Navbar />
@@ -24,15 +13,7 @@ function User() {
             <div className='flex justify-between items-center p-10'>
                 <h1 className='text-3xl'>
                     Welcome, <span className='text-rose-400 text-4xl uppercase font-bold'>{UserName}</span>
-                </h1>
-                {getEmail && (
-                    <button
-                        className='p-2 bg-rose-400 rounded text-white'
-                        onClick={handleClearLocalStorage}
-                    >
-                        Log Out
-                    </button>
-                )}
+                </h1>           
             </div>
 
             <div className='w-28 h-28 rounded-full bg-rose-400 mx-auto'>
@@ -42,7 +23,6 @@ function User() {
                     alt='user_image'
                 />
             </div>
-
             <Footer />
         </>
     );

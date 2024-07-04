@@ -25,7 +25,7 @@ function Contact() {
             localStorage.setItem("emailData", email);
             localStorage.setItem("passwordData", password);
             setTimeout(() => {
-                navigate("/userProfile")
+                navigate("/")
             }, 1500)
             toast.success('Login Successful', {
                 position: "top-center",

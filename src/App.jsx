@@ -40,7 +40,7 @@ function App() {
         <Route path="/cartlist" element={<Cart />} />
 
         {/* Product Category Routes */}
-        <Route path='/Pendant' element={<Pendant />} />
+        <Route path='/Pendants' element={<Pendant />} />
         <Route path='/Ring' element={<Ring />} />
         <Route path='/Necklace' element={<Necklace />} />
         <Route path='/Earrings' element={<Earrings />} />

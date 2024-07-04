@@ -1,11 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
 
 function Header() {
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
-    const NavData = ['Gold', 'Diamond', 'Gemstone', 'Ring', 'Earring', 'Noserings', 'Bracelets', 'Nosepins', "Pendants", 'Mangalsutras', 'Pages'];
+    const NavData = [
+        { label: 'Gold', link: '/Gold' },
+        { label: 'Diamond', link: '/Diamond' },
+        { label: 'Gemstone', link: '/Gemstone' },
+        { label: 'Ring', link: '/Ring' },
+        { label: 'Necklace', link: '/Necklace' },
+        { label: 'Earrings', link: '/Earrings' },
+        { label: 'Noserings', link: '/Noserings' },
+        { label: 'Bracelets', link: '/Bracelets' },
+        { label: 'Nosepins', link: '/Nosepins' },
+        { label: 'Pendants', link: '/Pendants' },
+        { label: 'Mangalsutras', link: '/Mangalsutras' },
+        { label: 'Pages', link: '/Pages' }
+      ];
+      
 
     useEffect(() => {
         let ticking = false;
@@ -42,8 +57,8 @@ function Header() {
             <nav className="nav font-semibold">
                 <ul className="flex items-center max-md:hidden">
                     {NavData.map((item, index) => (
-                        <li key={index} className="p-3 border-b-2 border-rose-400 border-opacity-0 hover:border-opacity-100 hover:text-gray-300 duration-200 cursor-pointer">
-                            <a href="#">{item}</a>
+                        <li key={index} className="p-3 border-b-2 border-rose-400 border-opacity-0 hover:border-opacity-100 hover:text-black duration-200 cursor-pointer">
+                          <Link to={`${item.link}`}>{item.label}</Link>
                         </li>
                     ))}
                 </ul>
