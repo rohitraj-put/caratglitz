@@ -143,12 +143,7 @@ nav ul li a {
 }
 
 .product_variety .variety_box {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
   border: 2px solid rgb(251 113 133);
-  cursor: pointer;
-  overflow: hidden;
 }
 
 .product_variety::-webkit-scrollbar {

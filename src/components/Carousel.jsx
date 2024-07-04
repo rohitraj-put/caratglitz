@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 function Carousel() {
 
     const images = [
+        "https://static.malabargoldanddiamonds.com/media/bsimages/Kasu-collection-Web_24062024.jpg",
         "https://static.malabargoldanddiamonds.com/media/bsimages/Caliesta-web1-14052024.jpg",
         "https://static.malabargoldanddiamonds.com/media/bsimages/Men_Gold_Kada_NTR_web_01032024.jpg",
         "https://static.malabargoldanddiamonds.com/media/bsimages/Zoule-Collection-web-09022024.jpg",

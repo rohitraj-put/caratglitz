@@ -26,7 +26,7 @@ function ProductVariety() {
         <div className='product_variety'>
             {images.map((image, index) => (
                 <Link to={"#"} key={index}>
-                    <div className='variety_box' key={index}>
+                    <div className='variety_box rounded-full cursor-pointer overflow-hidden w-[6rem] h-[6rem] max-lg:w-[4rem] max-lg:h-[4rem]' key={index}>
                         <img src={image.src} alt={image.alt} />
                     </div>
                 </Link>
