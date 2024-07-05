@@ -19,3 +19,10 @@ open http://localhost:3000
 ```
 
 ![Logo](./src/assets/image/websiteImg.png)
+
+
+
+- ### Fully Responsive website
+
+
+![Logo](./src/assets/image/responsiveweb.png)
