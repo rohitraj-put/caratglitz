@@ -42,7 +42,10 @@ const Cart = () => {
                                 <div key={item.id} className='mb-6 '>
                                     <div className="rounded-lg md:w-full m-auto">
                                         <div className="justify-between relative mb-4 rounded-lg bg-white p-2 border sm:flex sm:justify-start">
-                                            <button className='absolute top-4 right-4 bg-gray-100 rounded-full p-2' onClick={() => dispatch(removeFromCart(item.id))}><RxCross2 /></button>
+                                            <button className='absolute top-4 right-4 bg-gray-100 rounded-full p-2' onClick={() => {
+                                                dispatch(removeFromCart(item.id))
+                                                toast.success("Remove Cart Item")
+                                            }}><RxCross2 /></button>
 
                                             <img
                                                 src={item.imgsrc}
