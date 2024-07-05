@@ -30,7 +30,7 @@ function ProductDetail() {
     const Controls = () => {
         const { zoomIn, zoomOut } = useControls();
         return (
-            <div className='absolute left-2 top-2'>
+            <div className='absolute left-2 top-2 z-20'>
                 <button className='text-2xl w-9 h-16 bg-gray-200 block' onMouseDownCapture={() => zoomIn()}>+</button>
                 <button className='text-2xl w-9 h-16 bg-gray-200 mt-2 block' onMouseUpCapture={() => zoomOut()}>-</button>
             </div>
@@ -53,7 +53,7 @@ function ProductDetail() {
     const handleCheckout = (e) => {
         e.preventDefault()
         toast.success('Proceeding to checkout', {
-            position: "bottom-left",
+            position: "top-center",
             autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
@@ -63,7 +63,7 @@ function ProductDetail() {
         });
         setTimeout(() => {
             toast.error('Sorry, payment gateway is disabled', {
-                position: "bottom-left",
+                position: "top-center",
                 autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -79,13 +79,13 @@ function ProductDetail() {
             <Header />
             <ToastContainer />
             <div className="bg-white">
-                <div className="p-4 lg:max-w-7xl max-w-4xl mx-auto">
+                <div className="p-2 lg:max-w-7xl max-w-4xl mx-auto">
                     <div className="grid items-center grid-cols-1 lg:grid-cols-4 gap-12 p-6 rounded-lg">
                         <div className="relative border-2 rounded lg:col-span-2 w-full lg:sticky top-0 text-center">
-                            <button type="button" className="text-rose-400 absolute text-3xl top-4 right-4 p-1 bg-gray-100 rounded-full">
+                            <button type="button" className="text-rose-400 absolute text-3xl top-4 right-4 p-1 bg-gray-100 rounded-full z-10">
                                 <CiHeart />
                             </button>
-                            <div className="w-3/4 h-3/4 mx-auto">
+                            <div className="w-3/4 h-3/4 mx-auto  max-lg:w-full">
                                 <TransformWrapper>
                                     <Controls />
                                     <TransformComponent>

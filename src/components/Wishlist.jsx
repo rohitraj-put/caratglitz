@@ -1,26 +1,12 @@
 import React from 'react'
 import { FaStar } from "react-icons/fa";
-import { RxCross2 } from "react-icons/rx";
 import { Link } from 'react-router-dom';
 import { MdCurrencyRupee } from "react-icons/md";
 import { ToastContainer, toast } from 'react-toastify';
 
 
-function Wishlist({ wishlist, removeFromWishlist }) {
-    const cartHandler = (e) => {
-        e.preventDefault()
-        dispatch(addToCart(data))
-        toast.success(`${data.proName} has been cart in the list`, {
-            position: "top-center",
-            autoClose: 1000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
 
-        });
-    }
+function Wishlist({ wishlist }) {
 
     const handleCheckout = (e) => {
         e.preventDefault()
@@ -68,12 +54,6 @@ function Wishlist({ wishlist, removeFromWishlist }) {
                                         <i><MdCurrencyRupee /></i><p>{item.price}</p>
                                     </div>
                                 </div>
-                                <button
-                                    onClick={() => removeFromWishlist(item.id)}
-                                    className='p-2 text-xl text-rose-400'
-                                >
-                                    <RxCross2 />
-                                </button>
                             </div>
                             <div className="flex justify-between text-xs">
                                 <div

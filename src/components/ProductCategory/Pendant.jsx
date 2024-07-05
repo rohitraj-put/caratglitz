@@ -16,7 +16,7 @@ function Pendant() {
                 <h2 className="text-3xl py-10 font-bold text-center capitalize tracking-tight text-rose-400 sm:text-4xl">
                     The Best Pendant Collection
                 </h2>
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="mt-6 px-8 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                     {filteredProducts.map((item, index) => (
                         <ProductCard item={item} key={index} />
                     ))}

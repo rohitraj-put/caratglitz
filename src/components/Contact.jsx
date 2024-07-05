@@ -3,8 +3,7 @@ import daimond from '../assets/image/daimond.mp4';
 import Footer from './Footer';
 import User from './userProfile/User';
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import toast, { Toaster } from 'react-hot-toast';
 import Navbar from './Navbar';
 import Header from './Header';
 
@@ -27,27 +26,11 @@ function Contact() {
             setTimeout(() => {
                 navigate("/")
             }, 1500)
-            toast.success('Login Successful', {
-                position: "top-center",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            toast.success('Login Successful')
 
 
         } else {
-            toast.error('Your email or password is incorrect!', {
-                position: "top-center",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            toast.error('Your email or password is incorrect!')
         }
     };
 
@@ -57,7 +40,7 @@ function Contact() {
 
     return (
         <>
-            <ToastContainer />
+            <Toaster />
             <Navbar />
             <Header />
             <section className="min-h-80 mt-6 flex box-border justify-center items-center">

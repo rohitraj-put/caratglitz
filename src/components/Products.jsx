@@ -3,7 +3,6 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 import ProductCard from './ProductCard';
 import ProductData from '../data/ProductData';
-import { IoIosArrowDown } from "react-icons/io";
 
 function Products({ addToWishlist, wishlist }) {
     const [filter, setFilter] = useState('All');
