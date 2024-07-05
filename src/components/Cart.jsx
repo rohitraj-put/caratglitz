@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, increaseQuantity, decreaseQuantity } from '../redux/actions';
 import { RxCross2 } from "react-icons/rx";
 import { MdCurrencyRupee } from "react-icons/md";
-import { ToastContainer, toast } from 'react-toastify';
+import toast, { Toaster } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Header from './Header';
@@ -16,25 +16,9 @@ const Cart = () => {
     const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
 
     const handleCheckout = () => {
-        toast.success('Proceeding to checkout', {
-            position: "bottom-left",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        });
+        toast.success('Proceeding to checkout')
         setTimeout(() => {
-            toast.error('Sorry, payment gateway is disabled', {
-                position: "bottom-left",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            toast.error('Sorry, payment gateway is disabled')
         }, 2800);
     };
 
@@ -94,15 +78,7 @@ const Cart = () => {
                                                                 if (item.quantity < 3) {
                                                                     dispatch(increaseQuantity(item.id))
                                                                 } else {
-                                                                    toast.warn("Uff ! Item Sold Out", {
-                                                                        position: "bottom-left",
-                                                                        autoClose: 800,
-                                                                        hideProgressBar: false,
-                                                                        closeOnClick: true,
-                                                                        pauseOnHover: true,
-                                                                        draggable: true,
-                                                                        progress: undefined,
-                                                                    })
+                                                                    toast.error("Uff ! Item Sold Out")
                                                                 }
                                                             }}
                                                         >
@@ -125,7 +101,7 @@ const Cart = () => {
                 </div>
 
                 {cart.length === 0 ? "" : <div className="mt-6 h-full rounded-lg border sticky top-20 bg-white p-6 shadow-md md:mt-0 md:w-1/3">
-                    <ToastContainer />
+                    
                     <div className="mb-2 flex justify-between">
                         <p className="text-gray-700 font-bold">Order summary (Total items: {totalQuantity})</p>
                     </div>
@@ -165,6 +141,7 @@ const Cart = () => {
                     <p className='py-4'>All major payment methods are accepted, including UPI, credit cards, debit cards, PayPal, and Net Banking.</p>
                 </div>}
             </div>
+            <Toaster />
         </>
     );
 };

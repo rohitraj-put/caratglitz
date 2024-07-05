@@ -62,8 +62,8 @@ function ProductFeature() {
 
             <div className='feature_banner'>
                 <div className="mx-auto mt-6 max-w-2xl overflow-hidden sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-                    <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg" data-aos="fade-down">
-                        <video width="400" className="h-full w-full object-cover object-center" loop muted autoPlay>
+                    <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden rounded-lg" data-aos="fade-down">
+                        <video width="400" className="h-full w-full object-cover object-center rounded-lg" loop muted autoPlay>
                             <source src={daimond} type="video/mp4" />
                         </video>
                     </div>

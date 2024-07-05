@@ -14,34 +14,39 @@ const CookieConsent = () => {
         const userConsent = localStorage.getItem('cookieConsent');
         if (userConsent === 'accepted') {
             setConsentAccepted(true);
-            loadCookies();
-        } else {
-            // If consent is not accepted, default to showing all cookie sections
-            setConsentAccepted(false);
             setCookiePreferences({
-                analytics: true,
-                marketing: true,
-                preferences: true
+                analytics: JSON.parse(localStorage.getItem('analytics')),
+                marketing: JSON.parse(localStorage.getItem('marketing')),
+                preferences: JSON.parse(localStorage.getItem('preferences'))
             });
-            loadCookies(); // Load default cookies
         }
     }, []);
 
-    const loadCookies = () => {
+    useEffect(() => {
         if (consentAccepted) {
-            if (cookiePreferences.analytics) {
-                Cookies.set('analytics', 'enabled', { expires: 365 });
-            }
-            if (cookiePreferences.marketing) {
-                Cookies.set('marketing', 'enabled', { expires: 365 });
-            }
-            if (cookiePreferences.preferences) {
-                Cookies.set('preferences', 'enabled', { expires: 365 });
-            }
-        } else {
+            localStorage.setItem('cookieConsent', 'accepted');
+            localStorage.setItem('analytics', JSON.stringify(cookiePreferences.analytics));
+            localStorage.setItem('marketing', JSON.stringify(cookiePreferences.marketing));
+            localStorage.setItem('preferences', JSON.stringify(cookiePreferences.preferences));
+            loadCookies();
+        }
+    }, [consentAccepted, cookiePreferences]);
+
+    const loadCookies = () => {
+        if (cookiePreferences.analytics) {
             Cookies.set('analytics', 'enabled', { expires: 365 });
+        } else {
+            Cookies.remove('analytics');
+        }
+        if (cookiePreferences.marketing) {
             Cookies.set('marketing', 'enabled', { expires: 365 });
+        } else {
+            Cookies.remove('marketing');
+        }
+        if (cookiePreferences.preferences) {
             Cookies.set('preferences', 'enabled', { expires: 365 });
+        } else {
+            Cookies.remove('preferences');
         }
     };
 
@@ -53,54 +58,50 @@ const CookieConsent = () => {
 
     const handleAcceptAllCookies = () => {
         setConsentAccepted(true);
-        localStorage.setItem('cookieConsent', 'accepted');
         setCookiePreferences({
             analytics: true,
             marketing: true,
             preferences: true
         });
-        loadCookies();
     };
 
     const handleDeclineCookies = () => {
-        setConsentAccepted(false);
-        localStorage.removeItem('cookieConsent');
-        clearCookies();
-        setCookiePreferences({
-            analytics: false,
-            marketing: false,
-            preferences: false
-        });
+        setConsentAccepted(false); 
+        clearCookies(); 
+
     };
 
-    return (
-        !consentAccepted ?
-            <div className="cookie-consent bg-gray-100 w-80 p-4 rounded">
-                <div className='flex text-rose-400 justify-center'>
-                    <i className='text-4xl mr-4'><FaCookieBite /></i>
-                    <p className='text-2xl'>Cookie Consent</p>
-                </div>
-                <p>
-                    This website uses cookies to ensure you get the best experience.
-                </p>
+   
+    if (consentAccepted) {
+        return null;
+    }
 
-                <br />
-                <div className='flex'>
-                    <button
-                        onClick={handleAcceptAllCookies}
-                        className='px-4 py-2 bg-rose-400 text-white rounded-3xl'
-                    >
-                        Accept All Cookies
-                    </button>
-                    <button
-                        onClick={handleDeclineCookies}
-                        className='ml-2 px-4 py-2 bg-gray-400 text-white rounded-3xl'
-                    >
-                        Decline
-                    </button>
-                </div>
+    return (
+        <div className="cookie-consent border w-72 mt-0.5  border-gray-300 text-gray-600 px-4 py-4 bg-white focus:outline-none appearance-none">
+            <div className='flex text-rose-400 justify-center'>
+                <i className='text-4xl mr-4'><FaCookieBite /></i>
+                <p className='text-2xl'>Cookie Consent</p>
             </div>
-            : null
+            <p>
+                This website uses cookies to ensure you get the best experience.
+            </p>
+
+            <br />
+            <div className='flex justify-between'>
+                <button
+                    onClick={handleAcceptAllCookies}
+                    className='px-8 py-2 bg-rose-400 text-white rounded-3xl'
+                >
+                    Accept
+                </button>
+                <button
+                    onClick={handleDeclineCookies}
+                    className={`ml-2 px-8 py-2 bg-gray-400 text-white rounded-3xl`}
+                >
+                    Decline
+                </button>
+            </div>
+        </div>
     );
 };
 

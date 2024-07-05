@@ -13,7 +13,7 @@ import {
 } from "react-zoom-pan-pinch";
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../redux/actions'
-import { ToastContainer, toast } from 'react-toastify'
+import toast, { Toaster } from 'react-hot-toast';
 
 const product = {
     rating: 3.9,
@@ -52,43 +52,18 @@ function QuickView({ data, open, setOpen }) {
     const cartHandler = (e) => {
         e.preventDefault()
         dispatch(addToCart(data))
-        toast.success(`${data.proName} has been cart in the list`, {
-            position: "top-center",
-            autoClose: 1000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-
-        });
+        toast.success(`${data.proName} has been cart in the list`);
     }
     const handleCheckout = (e) => {
         e.preventDefault()
-        toast.success('Proceeding to checkout', {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        });
+        toast.success('Proceeding to checkout');
         setTimeout(() => {
-            toast.error('Sorry, payment gateway is disabled', {
-                position: "top-center",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            toast.error('Sorry, payment gateway is disabled');
         }, 2800);
     };
     return (
         <>
-            <ToastContainer />
+            
             <Transition show={open}>
                 <Dialog className="relative z-50" onClose={setOpen}>
                     <TransitionChild
@@ -271,6 +246,7 @@ function QuickView({ data, open, setOpen }) {
                     </div>
                 </Dialog>
             </Transition>
+            <Toaster/>
         </>
     )
 }

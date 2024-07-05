@@ -2,39 +2,22 @@ import React from 'react'
 import { FaStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { MdCurrencyRupee } from "react-icons/md";
-import { ToastContainer, toast } from 'react-toastify';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
 function Wishlist({ wishlist }) {
-
     const handleCheckout = (e) => {
         e.preventDefault()
-        toast.success('Proceeding to checkout', {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        });
+        toast.success('Proceeding to checkout');
         setTimeout(() => {
-            toast.error('Sorry, payment gateway is disabled', {
-                position: "top-center",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            toast.error('Sorry, payment gateway is disabled');
         }, 2800);
     };
 
     return (
         <>
-            <ToastContainer />
+
             {wishlist.length === 0 ? "No Item Available" : wishlist.map(item => (
                 <div key={item.id}>
                     <div className="flex  gap-2 dark:text-white max-w-md w-full bg-white dark:bg-neutral-900  rounded-md mt-8 border ">
@@ -72,7 +55,7 @@ function Wishlist({ wishlist }) {
                 </div>
             ))
             }
-
+            <Toaster />
             {/* animate-pulse */}
 
         </ >

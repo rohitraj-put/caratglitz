@@ -52,8 +52,10 @@ function Contact() {
                                 className="p-2 mt-8 rounded border"
                                 type="email"
                                 name="email"
+                                id='email'
                                 placeholder="Email"
                                 ref={emailRef}
+                                autoComplete="email"
                                 required
                             />
                             <input

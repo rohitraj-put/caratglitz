@@ -46,7 +46,7 @@ function Feedback() {
                 {
                     feedBack.map((item, index) => <div className="slider_card text-center border-r-2" key={index}>
                         <div className="py-3 px-3 w-28 h-28 m-auto">
-                            <img className="rounded-full border-2 border-rose-500" src={item.customer_img} />
+                            <img className="rounded-full border-2 border-rose-500" src={item.customer_img} alt="cliantImage"/>
 
                         </div>
                         <p className="p-14 rounded-3xl max-md:p-1 "><q>{item.feeback}</q></p>

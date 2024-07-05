@@ -31,7 +31,7 @@ function Home() {
     return (
         <>
             
-            <div className='fixed bottom-0 left-0 z-10 m-2 '>
+            <div className='fixed mx-auto bottom-1 left-1 z-10 m-2 '>
                 <CookieConsent />
             </div>
             <Navbar wishlist={wishlist} wishCount={wishlist.length} send={<Wishlist wishlist={wishlist} removeFromWishlist={toggleWishlistItem} />} />

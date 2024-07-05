@@ -10,7 +10,7 @@ import Footer from './Footer';
 import Feedback from './Feedback';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/actions';
-import { ToastContainer, toast } from 'react-toastify';
+import toast, { Toaster } from 'react-hot-toast';
 import Navbar from './Navbar';
 import Header from './Header';
 
@@ -39,45 +39,19 @@ function ProductDetail() {
 
     const cartHandler = (e) => {
         dispatch(addToCart(product))
-        toast.success(`${product.proName} has been cart in the list`, {
-            position: "top-right",
-            autoClose: 1000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-
-        });
+        toast.success(`${product.proName} has been cart in the list`)
     }
     const handleCheckout = (e) => {
         e.preventDefault()
-        toast.success('Proceeding to checkout', {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        });
+        toast.success('Proceeding to checkout');
         setTimeout(() => {
-            toast.error('Sorry, payment gateway is disabled', {
-                position: "top-center",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            toast.error('Sorry, payment gateway is disabled');
         }, 2800);
     };
     return (
         <>
             <Navbar />
             <Header />
-            <ToastContainer />
             <div className="bg-white">
                 <div className="p-2 lg:max-w-7xl max-w-4xl mx-auto">
                     <div className="grid items-center grid-cols-1 lg:grid-cols-4 gap-12 p-6 rounded-lg">
@@ -238,6 +212,7 @@ function ProductDetail() {
                 </div>
             </div>
             <Footer />
+            <Toaster/>
         </>
     );
 }

@@ -10,7 +10,7 @@ import { IoMdClose } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 
-function Navbar({ send ,wishCount}) {
+function Navbar({ send, wishCount }) {
     const [open, setOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [query, setQuery] = useState('');
@@ -58,7 +58,20 @@ function Navbar({ send ,wishCount}) {
         setIsProfileDropdownOpen(!isProfileDropdownOpen);
     };
 
-    const NavData = ['Gold', 'Diamond', 'Gemstone', 'Ring', 'Earring', 'Noserings', 'Bracelets', 'Noserings', 'Nosepins', "Pendents", 'Mangalsutras', 'All Pages'];
+    const NavData = [
+        { label: 'Gold', link: '/Gold' },
+        { label: 'Diamond', link: '/Diamond' },
+        { label: 'Gemstone', link: '/Gemstone' },
+        { label: 'Ring', link: '/Ring' },
+        { label: 'Necklace', link: '/Necklace' },
+        { label: 'Earrings', link: '/Earrings' },
+        { label: 'Noserings', link: '/Noserings' },
+        { label: 'Bracelets', link: '/Bracelets' },
+        { label: 'Nosepins', link: '/Nosepins' },
+        { label: 'Pendants', link: '/Pendants' },
+        { label: 'Mangalsutras', link: '/Mangalsutras' },
+        { label: 'Pages', link: '/Pages' }
+    ];
 
     const countryFlags = {
         India: 'https://static.vecteezy.com/system/resources/previews/016/328/568/original/india-flat-rounded-flag-with-transparent-background-free-png.png',
@@ -69,7 +82,7 @@ function Navbar({ send ,wishCount}) {
         Italy: 'https://static.vecteezy.com/system/resources/previews/011/571/348/non_2x/circle-flag-of-italy-free-png.png'
     };
 
-    
+
     const navigate = useNavigate();
 
     const handleClearLocalStorage = () => {
@@ -102,7 +115,7 @@ function Navbar({ send ,wishCount}) {
                                 </div>
                             </li>
 
-                            <div className="flex border-2 focus-within:border-rose-400 rounded-full px-6 py-3 overflow-hidden max-w-64">
+                            <div className="flex border-2 focus-within:border-rose-400 rounded-full px-6 py-3 overflow-hidden w-full">
                                 <input
                                     type="text"
                                     placeholder="Search Item..."
@@ -133,11 +146,12 @@ function Navbar({ send ,wishCount}) {
 
                             <div className='hidden max-lg:block'>
                                 <div className='flex items-center'>
-                                    
+
                                     <select
                                         className='border w-full mt-0.5 border-gray-300 rounded-full text-gray-600 px-4 py-1 bg-white hover:border-gray-400 focus:outline-none appearance-none'
                                         value={selectedCountry}
                                         onChange={handleCountryChange}
+                                        name="options"
                                     >
                                         {Object.keys(countryFlags).map((country, index) => (
                                             <option key={index} value={country}>
@@ -148,10 +162,9 @@ function Navbar({ send ,wishCount}) {
                                     <img className='w-6 h-6 ml-1' src={countryFlags[selectedCountry]} alt='Country Flag' />
                                 </div>
                             </div>
-
                             {NavData.map((item, index) => (
                                 <li key={index} className="max-lg:border-b max-lg:py-3 px-3 lg:hidden">
-                                    <Link to={"#"} className="hover:text-rose-400 text-15px block font-semibold">{item}</Link>
+                                    <Link to={`${item.link}`} className="hover:text-rose-400 text-15px block font-semibold">{item.label}</Link>
                                 </li>
                             ))}
                         </ul>
@@ -159,11 +172,12 @@ function Navbar({ send ,wishCount}) {
                     <div className="flex gap-x-6 gap-y-4 ml-auto">
                         <div className="flex items-center space-x-4">
                             <div className='flex items-center max-lg:hidden'>
-                                
+
                                 <select
                                     className='border mt-0.5 border-gray-300 rounded-full text-gray-600 px-4 py-1 bg-white hover:border-gray-400 focus:outline-none appearance-none'
                                     value={selectedCountry}
                                     onChange={handleCountryChange}
+                                    name="options"
                                 >
                                     {Object.keys(countryFlags).map((country, index) => (
                                         <option key={index} value={country}>
@@ -177,7 +191,7 @@ function Navbar({ send ,wishCount}) {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20px" className="cursor-pointer fill-333 inline" viewBox="0 0 64 64">
                                     <path d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z" data-original="#000000"></path>
                                 </svg>
-                                <span className="absolute left-auto -ml-1 top-0 rounded-full bg-red-500 px-1 py-0 text-xs text-white">{wishCount}</span>
+                                <span className="absolute left-auto -ml-1 top-0 rounded-full bg-red-500 px-1 py-0 text-xs text-white">{wishCount }</span>
                             </span>
                             <span className="relative">
                                 <Link to="/cartlist">
@@ -188,9 +202,9 @@ function Navbar({ send ,wishCount}) {
                                 <span className="absolute left-auto -ml-1 top-0 rounded-full bg-red-500 px-1 py-0 text-xs text-white">{cartItemNumber}</span>
                             </span>
                             <div className='relative'>
-                                
-                                    <img className='w-6 h-6 cursor-pointer z-50' src='https://cdn.pixabay.com/photo/2017/06/13/12/54/profile-2398783_1280.png' alt="User Profile" onClick={handleProfileClick} />
-                               
+
+                                <img className='w-6 h-6 cursor-pointer z-50' src='https://cdn.pixabay.com/photo/2017/06/13/12/54/profile-2398783_1280.png' alt="User Profile" onClick={handleProfileClick} />
+
                                 {isProfileDropdownOpen && (
                                     <ul className='absolute right-0 mt-2 w-48 overflow-hidden bg-white border rounded-lg shadow-lg'>
                                         <li className='px-4 py-2  text-rose-400 bg-gray-100'>
@@ -209,9 +223,9 @@ function Navbar({ send ,wishCount}) {
                                             <Link to="/settings">Settings</Link>
                                         </li>
                                         <li className='px-4 py-2 hover:bg-rose-400 hover:text-white'>
-                                           {
-                                            getEmail? <button onClick={handleClearLocalStorage}>Logout</button>:<Link to="/contact">Sign in</Link>
-                                           }
+                                            {
+                                                getEmail ? <button onClick={handleClearLocalStorage}>Logout</button> : <Link to="/contact">Sign in</Link>
+                                            }
                                         </li>
                                     </ul>
                                 )}
@@ -237,7 +251,7 @@ function Navbar({ send ,wishCount}) {
             </div>
 
             {open && <QuickWishlist open={open} setOpen={setOpen} send={send} />}
-            <Toaster/>
+            <Toaster />
         </>
     );
 }

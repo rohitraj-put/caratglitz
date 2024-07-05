@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import logo from "../assets/image/logo.png";
-import { FaLocationDot } from "react-icons/fa6";
 import { FaFacebook, FaInstagram, FaPinterest, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 import Aos from 'aos';

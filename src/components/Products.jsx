@@ -41,7 +41,7 @@ function Products({ addToWishlist, wishlist }) {
                         <div className="flex items-center mb-8">
                             <span className='mr-1'>Category :</span>
                             <select
-                                className=" border border-gray-300 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"
+                                className=" border border-gray-300 rounded-full  text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"
                                 value={filter}
                                 onChange={handleFilterChange}
                             >
