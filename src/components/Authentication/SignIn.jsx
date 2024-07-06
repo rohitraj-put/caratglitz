@@ -1,13 +1,13 @@
 import React, { useRef } from 'react';
-import daimond from '../assets/image/daimond.mp4';
-import Footer from './Footer';
-import User from './userProfile/User';
-import { useNavigate } from 'react-router-dom';
+import Footer from '../Footer';
+import User from '../userProfile/User';
+import { Link, useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
-import Navbar from './Navbar';
-import Header from './Header';
+import Navbar from '../Navbar';
+import Header from '../Header';
+import daimond from "../../assets/image/daimond.mp4"
 
-function Contact() {
+function SignIn() {
     const navigate = useNavigate();
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
@@ -107,9 +107,9 @@ function Contact() {
                         </div>
                         <div className="mt-4 text-sm flex justify-between items-center container-mr">
                             <p className="mr-3 md:mr-0">If you don't have an account...</p>
-                            <button className="register text-white bg-rose-400 hover:border-rose-500 rounded py-2 px-5 hover:bg-rose-500">
+                            <Link to={"/register"} className="register text-white bg-rose-400 hover:border-rose-500 rounded py-2 px-5 hover:bg-rose-500">
                                 Register
-                            </button>
+                            </Link>
                         </div>
                     </div>
                     <div className="md:block hidden w-1/2">
@@ -124,4 +124,4 @@ function Contact() {
     );
 }
 
-export default Contact;
+export default SignIn;

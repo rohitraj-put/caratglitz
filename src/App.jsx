@@ -6,7 +6,6 @@ import QuickView from './components/QuickView';
 import ProductDetail from './components/ProductDetail';
 import Loading from './components/Loading';
 import NotFoundPage from './components/NotFoundPage';
-import Contact from './components/Contact';
 import ScrollTop from './components/ScrollTop';
 import User from './components/userProfile/User';
 import Cart from './components/Cart';
@@ -14,7 +13,8 @@ import Pendant from './components/ProductCategory/Pendant';
 import Ring from './components/ProductCategory/Ring';
 import Necklace from './components/ProductCategory/Necklace';
 import Earrings from './components/ProductCategory/Earrings';
-
+import SignIn from './components/Authentication/SignIn';
+import Register from './components/Authentication/Register'
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -35,7 +35,8 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/QuickView" element={<QuickView />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/signin" element={<SignIn/>} />
+        <Route path='/register' element={<Register/>}/>
         <Route path="/userProfile" element={<User />} />
         <Route path="/cartlist" element={<Cart />} />
 

@@ -20,7 +20,7 @@ function Wishlist({ wishlist }) {
 
             {wishlist.length === 0 ? "No Item Available" : wishlist.map(item => (
                 <div key={item.id}>
-                    <div className="flex  gap-2 dark:text-white max-w-md w-full bg-white dark:bg-neutral-900  rounded-md mt-8 border ">
+                    <div className="flex  gap-2 dark:text-white max-w-md w-full bg-white rounded-md mt-8 border ">
                         <div className="bg-gray-200 dark:bg-neutral-700 rounded-md w-40 h-20 ">
                             <Link to={`/product/${item.id} ${item.proName}`}>
                                 <div className='w-full h-20 bg-gray-100 border'>
