@@ -18,6 +18,35 @@ npm run dev
 open http://localhost:3000
 ```
 
+## Table of Contents
+
+- [Demo](#demo)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+
+## Demo
+
+You can visit the live website at [CaratGlitz Demo](https://caratglitzweb.netlify.app/)
+
+## Features
+
+- User authentication (login and register)
+- Responsive design
+- Product listing with detailed views
+- Shopping cart functionality
+- Secure payment gateway integration (Currently Disable)
+- Admin panel for product management
+
+## Tech Stack
+
+- **Frontend:** React, Vite
+- **State Management:** Redux, Context API
+- **Styling:** Tailwind CSS
+- **Routing:** React Router
+- **Notifications:** react-hot-toast
+
+
 ![Logo](./src/assets/image/websiteImg.png)
 
 

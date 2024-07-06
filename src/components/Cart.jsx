@@ -46,13 +46,11 @@ const Cart = () => {
                                                 dispatch(removeFromCart(item.id))
                                                 toast.success("Remove Cart Item")
                                             }}><RxCross2 /></button>
-
                                             <img
                                                 src={item.imgsrc}
                                                 alt={item.alt}
                                                 className="w-full rounded-lg sm:w-40"
-                                            />
-
+                                            /> 
                                             <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                                                 <div className="mt-5 sm:mt-0">
                                                     <h2 className="text-lg font-bold text-gray-900 pr-2">
@@ -104,7 +102,7 @@ const Cart = () => {
                 </div>
 
                 {cart.length === 0 ? "" : <div className="mt-6 h-full rounded-lg border sticky top-20 bg-white p-6 shadow-md md:mt-0 md:w-1/3">
-                    
+
                     <div className="mb-2 flex justify-between">
                         <p className="text-gray-700 font-bold">Order summary (Total items: {totalQuantity})</p>
                     </div>

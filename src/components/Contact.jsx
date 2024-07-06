@@ -27,8 +27,6 @@ function Contact() {
                 navigate("/")
             }, 1500)
             toast.success('Login Successful')
-
-
         } else {
             toast.error('Your email or password is incorrect!')
         }
