@@ -32,7 +32,7 @@ function MidSec() {
 
     return (
         <div className="overflow-hidden mx-auto max-w-7xl  px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl py-16 sm:py-18 lg:max-w-none lg:py-0">
+            <div className="mx-auto max-w-2xl py-8 sm:py-18 lg:max-w-none lg:py-0">
                 <h2 className="text-3xl font-bold text-center tracking-tight text-rose-400 sm:text-4xl">Collections</h2>
                 <p className="pb-8 text-center">Discover our latest jewellery collection!</p>
                 <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
@@ -45,10 +45,9 @@ function MidSec() {
                                 <img
                                     src={collection.img}
                                     alt={collection.alt}
-                                    className="h-full w-full object-fill rounded-xl duration-200 hover:scale-105 "
+                                    className="h-full w-full object-fill rounded-xl duration-200 hover:scale-105"
                                 />
                             </div>
-                            
                         </div>
                     ))}
                 </div>

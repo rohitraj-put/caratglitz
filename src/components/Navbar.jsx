@@ -9,9 +9,11 @@ import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { IoMdClose } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import LogoutConfirm from './Authentication/LogoutConfirm';
 
 function Navbar({ send, wishCount }) {
     const [open, setOpen] = useState(false);
+    const [modal, setModal] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [query, setQuery] = useState('');
     const [suggestions, setSuggestions] = useState([]);
@@ -28,6 +30,9 @@ function Navbar({ send, wishCount }) {
 
     const handleQuickView = () => {
         setOpen(true);
+    };
+    const handleModal = () => {
+        setModal(true);
     };
 
     const handleCountryChange = (e) => {
@@ -85,11 +90,10 @@ function Navbar({ send, wishCount }) {
     const navigate = useNavigate();
 
     const handleClearLocalStorage = () => {
-        if (window.confirm("Are you sure you want to log out?")) {
             toast.success("Logged Out Successfully");
             localStorage.clear();
             navigate('/');
-        }
+            setModal(false)
     };
 
     return (
@@ -224,7 +228,7 @@ function Navbar({ send, wishCount }) {
                                         </li>
                                         <li className='px-4 py-2 hover:bg-rose-400 hover:text-white'>
                                             {
-                                                getEmail ? <button onClick={handleClearLocalStorage}>Logout</button> : <Link to="/signin">Sign in/Registration</Link>
+                                                getEmail ? <button onClick={handleModal}>Logout</button> : <Link to="/signin">Sign in/Registration</Link>
                                             }
                                         </li>
                                     </ul>
@@ -251,6 +255,7 @@ function Navbar({ send, wishCount }) {
             </div>
 
             {open && <QuickWishlist open={open} setOpen={setOpen} send={send} />}
+            {modal && <LogoutConfirm modal={modal} setModal={setModal} handleClearLocalStorage={handleClearLocalStorage}/>}
             <Toaster />
         </>
     );
