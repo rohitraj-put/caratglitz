@@ -14,7 +14,6 @@ function SignIn() {
 
     const storedEmail = localStorage.getItem("emailData");
     const storedPassword = localStorage.getItem("passwordData");
-
     const submitHandler = (e) => {
         e.preventDefault();
         const email = emailRef.current.value;

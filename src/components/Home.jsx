@@ -14,6 +14,7 @@ import Wishlist from './Wishlist';
 import toast, { Toaster } from 'react-hot-toast';
 import CookieConsent from './Cookie/CookieConsent';
 import Navbar from './Navbar';
+import Currency from './Currency';
 
 function Home() {
     const [wishlist, setWishlist] = useState([]);
@@ -34,6 +35,7 @@ function Home() {
             <div className='fixed mx-auto bottom-1 left-1 z-10 m-2 '>
                 <CookieConsent />
             </div>
+            {/* <Currency/> */}
             <Navbar wishlist={wishlist} wishCount={wishlist.length} send={<Wishlist wishlist={wishlist} removeFromWishlist={toggleWishlistItem} />} />
             <Header />
             <Carousel />
