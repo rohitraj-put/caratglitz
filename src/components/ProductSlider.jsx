@@ -10,7 +10,6 @@ function ProductSlider() {
             duration: 1200
         });
     })
-
     const settings = {
         dots: true,
         infinite: true,
@@ -46,7 +45,6 @@ function ProductSlider() {
             img_name: "https://static.malabargoldanddiamonds.com/media/wysiwyg/offer_page/2024/04_april/homepage/Gemstone-bangle.jpg",
             Link: "#"
         },
-
     ]
     return (
         <div className="slider-container mb-4 text-center overflow-hidden" data-aos="fade-up">
@@ -57,14 +55,12 @@ function ProductSlider() {
                     slider_card.map((item, index) => <div className="slider_card rounded-3xl" key={index}
                         data-aos-anchor-placement="top-bottom">
                         <Link to={`${item.Link}`}>
-                            <img className="p-2 rounded-3xl" src={item.img_name} alt="products_slider_image" />
+                            <img className="p-2 rounded-3xl cursor-pointer" src={item.img_name} alt="products_slider_image" />
                         </Link>
                     </div>)
                 }
             </Slider>
         </div>
-
-
     );
 }
 
