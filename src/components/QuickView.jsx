@@ -115,7 +115,7 @@ function QuickView({ data, open, setOpen }) {
                                                     {
                                                         data.allImage.map((image, index) => <div className='w-full h-full p-0.5 cursor-pointer bg-gray-100' key={index}>
                                                             <img className='w-full h-full' src={image}
-                                                                alt={`Product ${index + 1}`} onClick={() => setShowImage(image)} />
+                                                                alt={`Product ${index + 1}`} onMouseOver={() => setShowImage(image)} />
                                                         </div>)
                                                     }
                                                 </div>
