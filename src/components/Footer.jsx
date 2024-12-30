@@ -242,6 +242,7 @@ function Footer() {
                 </div>
 
                 <div className="border-t text-center border-gray-200 pt-4">
+                    <p className="hidden">Rohit Rajput</p>
                     <p className="text-xs text-gray-500">&copy;2021 - 2024 Caratglitz. All Rights Reserved | Site Map | Terms & Conditions | Privacy Policy</p>
                     <p className="text-xs text-gray-500">
                         Certificate: BIS License | IGL&I | ISO 9001:2015
