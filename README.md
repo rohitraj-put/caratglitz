@@ -46,74 +46,27 @@ You can visit the live website at [CaratGlitz Demo](https://caratglitzweb.netlif
 - **Routing:** React Router
 - **Notifications:** react-hot-toast
 
-Directory structure:
-└── rohitraj-put-caratglitz/
-    ├── README.md
-    ├── index.html
-    ├── package.json
-    ├── postcss.config.js
-    ├── tailwind.config.js
-    ├── vite.config.js
-    ├── .eslintrc.cjs
-    ├── public/
-    └── src/
-        ├── App.css
-        ├── App.jsx
-        ├── index.css
-        ├── input.css
-        ├── main.jsx
-        ├── output.css
-        ├── assets/
-        │   └── image/
-        │       ├── box2.webp
-        │       ├── box3.webp
-        │       ├── box4.webp
-        │       └── slider2.webp
-        ├── components/
-        │   ├── AnimatedNumber.jsx
-        │   ├── Carousel.jsx
-        │   ├── Cart.jsx
-        │   ├── Category.jsx
-        │   ├── Currency.jsx
-        │   ├── Feedback.jsx
-        │   ├── Footer.jsx
-        │   ├── Header.jsx
-        │   ├── Home.jsx
-        │   ├── Loading.jsx
-        │   ├── MidSec.jsx
-        │   ├── Navbar.jsx
-        │   ├── NotFoundPage.jsx
-        │   ├── ProductCard.jsx
-        │   ├── ProductDetail.jsx
-        │   ├── ProductFeature.jsx
-        │   ├── ProductSlider.jsx
-        │   ├── ProductVeraity.jsx
-        │   ├── Products.jsx
-        │   ├── QuickView.jsx
-        │   ├── QuickWishlist.jsx
-        │   ├── ScrollTop.jsx
-        │   ├── Wishlist.jsx
-        │   ├── Authentication/
-        │   │   ├── LogoutConfirm.jsx
-        │   │   ├── Register.jsx
-        │   │   └── SignIn.jsx
-        │   ├── Cookie/
-        │   │   └── CookieConsent.jsx
-        │   ├── ProductCategory/
-        │   │   ├── Earrings.jsx
-        │   │   ├── Necklace.jsx
-        │   │   ├── Pendant.jsx
-        │   │   └── Ring.jsx
-        │   └── userProfile/
-        │       └── User.jsx
-        ├── data/
-        │   └── ProductData.js
-        └── redux/
-            ├── actionTypes.js
-            ├── actions.js
-            ├── reducer.js
-            └── store.js
-
+``plaintext
+rohitraj-put-caratglitz/
+├── README.md                 # Project documentation
+├── index.html                # Main HTML file
+├── package.json              # Project dependencies and scripts
+├── postcss.config.js         # PostCSS configuration
+├── tailwind.config.js        # TailwindCSS configuration
+├── vite.config.js            # Vite configuration
+├── .eslintrc.cjs             # ESLint configuration
+├── public/                   # Static assets
+└── src/                      # Source code
+    ├── App.css               # Global CSS styles
+    ├── App.jsx               # Main App component
+    ├── index.css             # Index styles
+    ├── input.css             # Input styles
+    ├── main.jsx              # Entry point
+    ├── output.css            # Compiled CSS output
+    ├── assets/               # Images and other media
+    ├── components/           # React components
+    ├── data/                 # Static data files
+    └── redux/                # Redux configuration
 
 
 ![Logo](./src/assets/image/websiteImg.png)
