@@ -47,6 +47,7 @@ You can visit the live website at [CaratGlitz Demo](https://caratglitzweb.netlif
 - **Notifications:** react-hot-toast
 
 
+
 ![Logo](./src/assets/image/websiteImg.png)
 
 
