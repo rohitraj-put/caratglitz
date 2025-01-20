@@ -50,7 +50,7 @@ const Cart = () => {
                                                 src={item.imgsrc}
                                                 alt={item.alt}
                                                 className="w-full rounded-lg sm:w-40"
-                                            /> 
+                                            />
                                             <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                                                 <div className="mt-5 sm:mt-0">
                                                     <h2 className="text-lg font-bold text-gray-900 pr-2">

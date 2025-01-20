@@ -7,7 +7,6 @@ import Navbar from '../Navbar';
 import Header from '../Header';
 import daimond from "../../assets/image/daimond.mp4"
 
-
 function SignIn() {
     const navigate = useNavigate();
     const emailRef = useRef(null);

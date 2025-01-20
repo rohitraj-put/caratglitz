@@ -18,7 +18,7 @@ function Wishlist({ wishlist }) {
     return (
         <>
 
-            {wishlist.length === 0 ? "No Item Available" : wishlist.map(item => (
+            {wishlist.length === 0 ? "Uh Oh! Your Wishlist Seems to be Empty!" : wishlist.map(item => (
                 <div key={item.id}>
                     <div className="flex  gap-2 dark:text-white max-w-md w-full bg-white rounded-md mt-8 border ">
                         <div className="bg-gray-200 dark:bg-neutral-700 rounded-md w-40 h-20 ">

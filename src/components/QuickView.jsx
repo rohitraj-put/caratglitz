@@ -63,7 +63,7 @@ function QuickView({ data, open, setOpen }) {
     };
     return (
         <>
-            
+
             <Transition show={open}>
                 <Dialog className="relative z-50" onClose={setOpen}>
                     <TransitionChild
@@ -246,7 +246,7 @@ function QuickView({ data, open, setOpen }) {
                     </div>
                 </Dialog>
             </Transition>
-            <Toaster/>
+            <Toaster />
         </>
     )
 }

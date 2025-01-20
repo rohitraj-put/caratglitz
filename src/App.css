@@ -7,14 +7,14 @@
   font-family: "Nunito Sans", sans-serif;
 }
 
+body {
+  background-color: white;
+}
 
 :root {
   --bg-color: rgb(251 113 133);
-  ;
   --light-color: white;
 }
-
-
 
 .head_color {
   background-color: #F6F5F2 !important;
@@ -96,8 +96,7 @@ footer {
 
 }
 
-blur
-.dropdown .dropdown_image li img:hover {
+blur .dropdown .dropdown_image li img:hover {
   transform: scale(1.4);
 }
 
