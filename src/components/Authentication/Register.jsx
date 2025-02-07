@@ -1,20 +1,48 @@
-import React, { useState } from 'react';
-import Navbar from '../Navbar';
-import Header from '../Header';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import Navbar from "../Navbar";
+import Header from "../Header";
+import { Link } from "react-router-dom";
 
 const states = [
-  "Andaman and Nicobar Islands", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chandigarh", "Chhattisgarh", "Delhi", "Dadra and Nagar Haveli and Daman and Diu",
-  "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand",
-  "Karnataka", "Kerala", "Ladakh", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur",
-  "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Puducherry", "Punjab",
-  "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura",
-  "Uttar Pradesh", "Uttarakhand", "West Bengal",
+  "Andaman and Nicobar Islands",
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chandigarh",
+  "Chhattisgarh",
+  "Delhi",
+  "Dadra and Nagar Haveli and Daman and Diu",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Ladakh",
+  "Lakshadweep",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Puducherry",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal",
 ];
 
-
 const citiesByState = {
-  "Andhra Pradesh": [  
+  "Andhra Pradesh": [
     "Anantapur",
     "Chittoor",
     "East Godavari",
@@ -27,9 +55,9 @@ const citiesByState = {
     "Visakhapatnam",
     "Vizianagaram",
     "West Godavari",
-    "YSR Kadapa"
- ],
-  "Arunachal Pradesh": [  
+    "YSR Kadapa",
+  ],
+  "Arunachal Pradesh": [
     "Tawang",
     "West Kameng",
     "East Kameng",
@@ -50,9 +78,9 @@ const citiesByState = {
     "Namsai",
     "Changlang",
     "Tirap",
-    "Longding"
- ],
-  "Assam": [  
+    "Longding",
+  ],
+  Assam: [
     "Baksa",
     "Barpeta",
     "Biswanath",
@@ -85,9 +113,9 @@ const citiesByState = {
     "South Salmara-Mankachar",
     "Tinsukia",
     "Udalguri",
-    "West Karbi Anglong"
- ],
-  "Bihar": [  
+    "West Karbi Anglong",
+  ],
+  Bihar: [
     "Araria",
     "Arwal",
     "Aurangabad",
@@ -125,9 +153,9 @@ const citiesByState = {
     "Siwan",
     "Supaul",
     "Vaishali",
-    "West Champaran"
- ],
-  "Chhattisgarh":[  
+    "West Champaran",
+  ],
+  Chhattisgarh: [
     "Balod",
     "Baloda Bazar",
     "Balrampur",
@@ -154,10 +182,10 @@ const citiesByState = {
     "Rajnandgaon",
     "Sukma",
     "Surajpur  ",
-    "Surguja"
- ],
-  "Goa": ["Panaji", "Vasco da Gama"],
-  "Gujarat": [  
+    "Surguja",
+  ],
+  Goa: ["Panaji", "Vasco da Gama"],
+  Gujarat: [
     "Ahmedabad",
     "Amreli",
     "Anand",
@@ -190,9 +218,9 @@ const citiesByState = {
     "Surendranagar",
     "Tapi (Vyara)",
     "Vadodara",
-    "Valsad"
- ],
-  "Haryana": [  
+    "Valsad",
+  ],
+  Haryana: [
     "Ambala",
     "Bhiwani",
     "Charkhi Dadri",
@@ -214,9 +242,9 @@ const citiesByState = {
     "Rohtak",
     "Sirsa",
     "Sonipat",
-    "Yamunanagar"
- ],
-  "Himachal Pradesh": [  
+    "Yamunanagar",
+  ],
+  "Himachal Pradesh": [
     "Bilaspur",
     "Chamba",
     "Hamirpur",
@@ -228,9 +256,9 @@ const citiesByState = {
     "Shimla",
     "Sirmaur (Sirmour)",
     "Solan",
-    "Una"
- ],
-  "Jharkhand": [  
+    "Una",
+  ],
+  Jharkhand: [
     "Bokaro",
     "Chatra",
     "Deoghar",
@@ -254,9 +282,9 @@ const citiesByState = {
     "Sahibganj",
     "Seraikela-Kharsawan",
     "Simdega",
-    "West Singhbhum"
- ],
-  "Karnataka": [  
+    "West Singhbhum",
+  ],
+  Karnataka: [
     "Bagalkot",
     "Ballari (Bellary)",
     "Belagavi (Belgaum)",
@@ -286,9 +314,9 @@ const citiesByState = {
     "Udupi",
     "Uttara Kannada (Karwar)",
     "Vijayapura (Bijapur)",
-    "Yadgir"
- ],
-  "Kerala": [  
+    "Yadgir",
+  ],
+  Kerala: [
     "Alappuzha",
     "Ernakulam",
     "Idukki",
@@ -302,9 +330,9 @@ const citiesByState = {
     "Pathanamthitta",
     "Thiruvananthapuram",
     "Thrissur",
-    "Wayanad"
- ],
-  "Madhya Pradesh": [  
+    "Wayanad",
+  ],
+  "Madhya Pradesh": [
     "Agar Malwa",
     "Alirajpur",
     "Anuppur",
@@ -355,9 +383,9 @@ const citiesByState = {
     "Tikamgarh",
     "Ujjain",
     "Umaria",
-    "Vidisha"
- ],
-  "Maharashtra": [  
+    "Vidisha",
+  ],
+  Maharashtra: [
     "Ahmednagar",
     "Akola",
     "Amravati",
@@ -393,9 +421,9 @@ const citiesByState = {
     "Thane",
     "Wardha",
     "Washim",
-    "Yavatmal"
- ],
-  "Manipur":[  
+    "Yavatmal",
+  ],
+  Manipur: [
     "Bishnupur",
     "Chandel",
     "Churachandpur",
@@ -411,9 +439,9 @@ const citiesByState = {
     "Tamenglong",
     "Tengnoupal",
     "Thoubal",
-    "Ukhrul"
- ],
-  "Meghalaya": [  
+    "Ukhrul",
+  ],
+  Meghalaya: [
     "East Garo Hills",
     "East Jaintia Hills",
     "East Khasi Hills",
@@ -424,9 +452,9 @@ const citiesByState = {
     "South West Khasi Hills",
     "West Garo Hills",
     "West Jaintia Hills",
-    "West Khasi Hills"
- ],
-  "Mizoram":[  
+    "West Khasi Hills",
+  ],
+  Mizoram: [
     "Aizawl",
     "Champhai",
     "Kolasib",
@@ -434,9 +462,9 @@ const citiesByState = {
     "Lunglei",
     "Mamit",
     "Saiha",
-    "Serchhip"
- ],
-  "Nagaland": [  
+    "Serchhip",
+  ],
+  Nagaland: [
     "Dimapur",
     "Kiphire",
     "Kohima",
@@ -447,9 +475,9 @@ const citiesByState = {
     "Phek",
     "Tuensang",
     "Wokha",
-    "Zunheboto"
- ],
-  "Odisha": [  
+    "Zunheboto",
+  ],
+  Odisha: [
     "Angul",
     "Balangir",
     "Balasore",
@@ -479,9 +507,9 @@ const citiesByState = {
     "Rayagada",
     "Sambalpur",
     "Sonepur",
-    "Sundargarh"
- ],
-  "Punjab":[  
+    "Sundargarh",
+  ],
+  Punjab: [
     "Amritsar",
     "Barnala",
     "Bathinda",
@@ -503,9 +531,9 @@ const citiesByState = {
     "Rupnagar",
     "Sahibzada Ajit Singh Nagar (Mohali)",
     "Sangrur",
-    "Tarn Taran"
- ],
-  "Rajasthan": [  
+    "Tarn Taran",
+  ],
+  Rajasthan: [
     "Ajmer",
     "Alwar",
     "Banswara",
@@ -538,15 +566,10 @@ const citiesByState = {
     "Sirohi",
     "Sri Ganganagar",
     "Tonk",
-    "Udaipur"
- ],
-  "Sikkim": [  
-    "East Sikkim",
-    "North Sikkim",
-    "South Sikkim",
-    "West Sikkim"
- ],
-  "Tamil Nadu": [  
+    "Udaipur",
+  ],
+  Sikkim: ["East Sikkim", "North Sikkim", "South Sikkim", "West Sikkim"],
+  "Tamil Nadu": [
     "Ariyalur",
     "Chennai",
     "Coimbatore",
@@ -578,9 +601,9 @@ const citiesByState = {
     "Tiruvarur",
     "Vellore",
     "Viluppuram",
-    "Virudhunagar"
- ],
-  "Telangana": [  
+    "Virudhunagar",
+  ],
+  Telangana: [
     "Adilabad",
     "Bhadradri Kothagudem",
     "Hyderabad",
@@ -611,9 +634,9 @@ const citiesByState = {
     "Wanaparthy",
     "Warangal (Rural)",
     "Warangal (Urban)",
-    "Yadadri Bhuvanagiri"
- ],
-  "Tripura": [  
+    "Yadadri Bhuvanagiri",
+  ],
+  Tripura: [
     "Dhalai",
     "Gomati",
     "Khowai",
@@ -621,9 +644,10 @@ const citiesByState = {
     "Sepahijala",
     "South Tripura",
     "Unakoti",
-    "West Tripura"
- ],
-  "Uttar Pradesh": ["Agra",
+    "West Tripura",
+  ],
+  "Uttar Pradesh": [
+    "Agra",
     "Aligarh",
     "Ambedkar Nagar",
     "Amethi",
@@ -697,8 +721,10 @@ const citiesByState = {
     "Sonbhadra",
     "Sultanpur",
     "Unnao",
-    "Varanasi"],
-  "Uttarakhand": [  "Almora",
+    "Varanasi",
+  ],
+  Uttarakhand: [
+    "Almora",
     "Bageshwar",
     "Chamoli",
     "Champawat",
@@ -710,8 +736,10 @@ const citiesByState = {
     "Rudraprayag",
     "Tehri Garhwal",
     "Udham Singh Nagar",
-    "Uttarkashi"],
-  "West Bengal": ["Alipurduar",
+    "Uttarkashi",
+  ],
+  "West Bengal": [
+    "Alipurduar",
     "Bankura",
     "Birbhum",
     "Cooch Behar",
@@ -733,11 +761,12 @@ const citiesByState = {
     "Purba Medinipur",
     "Purulia",
     "South 24 Parganas",
-    "Uttar Dinajpur"],
+    "Uttar Dinajpur",
+  ],
   "Andaman and Nicobar Islands": ["Port Blair"],
-  "Chandigarh": ["Chandigarh"],
+  Chandigarh: ["Chandigarh"],
   "Dadra and Nagar Haveli and Daman and Diu": ["Daman", "Diu", "Silvassa"],
-  "Delhi": [  
+  Delhi: [
     "Central Delhi",
     "East Delhi",
     "New Delhi",
@@ -748,16 +777,14 @@ const citiesByState = {
     "South Delhi",
     "South East Delhi",
     "South West  Delhi",
-    "West Delhi"
- ],
-  "Lakshadweep": ["Kavaratti"],
-  "Puducherry": ["Puducherry", "Karaikal", "Mahe", "Yanam"]
+    "West Delhi",
+  ],
+  Lakshadweep: ["Kavaratti"],
+  Puducherry: ["Puducherry", "Karaikal", "Mahe", "Yanam"],
 };
 
-
-
 function Register() {
-  const [selectedState, setSelectedState] = useState('');
+  const [selectedState, setSelectedState] = useState("");
   const [cities, setCities] = useState([]);
 
   const handleStateChange = (e) => {
@@ -883,8 +910,8 @@ function Register() {
                     </select>
                   </div>
                 </div>
-                <div className='flex justify-between'>
-                  <div className='mr-4 full'>
+                <div className="flex justify-between">
+                  <div className="mr-4 full">
                     <label
                       htmlFor="state"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -955,7 +982,7 @@ function Register() {
                   Create an account
                 </button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Already have an account?{' '}
+                  Already have an account?{" "}
                   <Link
                     to="/signin"
                     className="font-medium text-primary-600 hover:underline dark:text-primary-500"
