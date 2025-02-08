@@ -17,6 +17,7 @@ import SignIn from "./components/Authentication/SignIn";
 import Register from "./components/Authentication/Register";
 import APIContextProvider from "./context/APIContextProvider";
 import Signup from "./components/Authentication/Signup";
+import UserLocation from "./location/UserLocation";
 
 function App() {
   const [loading, setLoading] = useState(true);

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar";
 import Header from "../Header";
 import { useAPI } from "../../context/APIContextProvider";
+import UserLocation from "../../location/UserLocation";
 
 function User() {
   const { data } = useAPI();
@@ -11,7 +12,7 @@ function User() {
     <>
       <Navbar />
       <Header />
-      <div className="flex justify-between items-center p-10">
+      <div className="flex justify-between items-center p-4">
         <h1 className="text-3xl">
           Welcome,{" "}
           <span className="text-rose-400 text-4xl uppercase font-bold">
@@ -21,17 +22,17 @@ function User() {
       </div>
 
       <div className="flex items-center w-full justify-center">
-        <div className="max-w-xs">
-          <div className="bg-white shadow-xl rounded-lg py-3">
+        <div className="max-w-xs border-[1px] ">
+          <div className="bg-white  rounded-lg py-3">
             <div className="photo-wrapper p-2">
               <img
-                className="w-32 h-32 rounded-full mx-auto"
+                className="w-36 h-36 rounded-full object-cover mx-auto"
                 src={data.avatar}
                 alt={data.username}
               />
             </div>
             <div className="p-2">
-              <h3 className="text-center text-xl text-gray-900 font-medium leading-8">
+              <h3 className="text-center text-xl text-gray-900 font-medium leading-8 capitalize">
                 {data.username}
               </h3>
 
@@ -42,7 +43,7 @@ function User() {
                       Address
                     </td>
                     <td className="px-2 py-2">
-                      Chatakpur-3, Dhangadhi Kailali
+                      <UserLocation />
                     </td>
                   </tr>
                   <tr>
@@ -55,19 +56,10 @@ function User() {
                     <td className="px-2 py-2 text-gray-500 font-semibold">
                       Email
                     </td>
-                    <td className="px-2 py-2">john@example.com</td>
+                    <td className="px-2 py-2">{data.email}</td>
                   </tr>
                 </tbody>
               </table>
-
-              <div className="text-center my-3">
-                <a
-                  className="text-xs text-indigo-500 italic hover:underline hover:text-indigo-600 font-medium"
-                  href="#"
-                >
-                  View Profile
-                </a>
-              </div>
             </div>
           </div>
         </div>
